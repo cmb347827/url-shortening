@@ -1,0 +1,39 @@
+@media screen and (max-width: 767px){
+    #desktop-nav{
+        display:none;
+    }
+    #nav{
+        #nav-top{
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+            
+        }
+    }
+    
+    ul:not(ul.hidden){
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+}
+
+#close{
+    filter:brightness(0) saturate(100%) invert(92%) sepia(3%) saturate(3990%) hue-rotate(191deg) brightness(106%) contrast(105%);
+}
+
+@media screen and(min-width:767px){
+        #nav{
+            display:none;
+        }
+        #desktop-nav{
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #desktop-ul{
+            display:flex;
+            flex-direction:row;
+        }
+}
