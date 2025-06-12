@@ -37,9 +37,9 @@ const urlEncoded=()=>{
 }
 
 function getFetchPost(){
-	/*const url = '/.netlify/functions/proxy';
-	
-	return  fetch(url, {
+	//const url = '/.netlify/functions/proxy';
+	const url = '/.netlify/functions/octo';
+	 fetch(url, {
 		method: 'POST',
 		body: JSON.stringify({
 			url: data.encodedUrl,
@@ -48,21 +48,20 @@ function getFetchPost(){
 			'content-type': 'application/json'
 		}
 		})
-	     .then(response => {
-			  console.log('response',response);
-          })
-         .then(json => {
-			  console.log('json',json);
-         })
-		.catch((err)=>console.log('in getfetchpost:',err));  */
+	     .then((resp)=>resp.json())
+	     .then((content)=>{
+		     console.log('in getfetchpost', content);
+	    })
+	    .catch(console.error);  
     //const url='/.netlify/functions/serverlessFetch';
-	const url = '/.netlify/functions/octo';
-	fetch(url)
+	//const url = '/.netlify/functions/octo';
+	/*fetch(url)
 	  .then((resp)=>resp.json())
 	  .then((content)=>{
 		  console.log('in getfetchpost', content);
 	  })
-	  .catch(console.error);
+	  .catch(console.error);*/
+	
 }
 
 
