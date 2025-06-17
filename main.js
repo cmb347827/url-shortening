@@ -38,30 +38,23 @@ const urlEncoded=()=>{
 
 function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
+	//const url = '/.netlify/functions/serverlessFetch';
 	const url = '/.netlify/functions/octo';
-	 fetch(url, {
-		method: 'POST',
-		body: JSON.stringify({
-			url: data.encodedUrl,
-		}),
-		headers: {
-			'content-type': 'application/json'
-		}
-		})
-	     .then((resp)=>resp.json())
+	
+	fetch(url, {
+       method: 'POST',
+       body: {
+			url: JSON.stringify(data.encodedUrl),
+		},
+       headers: {
+          'Content-Type': 'application/json'
+       }
+    })
+	.then((resp)=>resp.json())
 	     .then((content)=>{
 		     console.log('in getfetchpost', content);
 	    })
-	    .catch(console.error);  
-    //const url='/.netlify/functions/serverlessFetch';
-	//const url = '/.netlify/functions/octo';
-	/*fetch(url)
-	  .then((resp)=>resp.json())
-	  .then((content)=>{
-		  console.log('in getfetchpost', content);
-	  })
-	  .catch(console.error);*/
-	
+	    .catch(console.error);
 }
 
 
