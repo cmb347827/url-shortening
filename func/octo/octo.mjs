@@ -34,16 +34,18 @@ import fetch from 'node-fetch';
     }
  
     const res = await fetch(url);
+    console.log('res',res);
     data = await res.json();
+    console.log('data',data);
     callback(null,{
             statusCode:200,
             body: JSON.stringify(data),
     });
-}*/
-
+}
+*/
 
 //Function octo has returned an error: Function returned an unsupported value. Accepted types are 'Response' or 'undefined'
-export default async function proxyHandler(request,callback) {
+/*export default async function proxyHandler(request,callback) {
     const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
     //const url = "https://cleanuri.com/api/v1/shorten";
  
@@ -79,13 +81,19 @@ export default async function proxyHandler(request,callback) {
     }
         
 }
+*/
 
-//Function octo has returned an error: "[object Object]" is not valid JSON
-/*export default async function proxyHandler(request) {
+
+export default async function proxyHandler(request) {
+    //const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
+    const url = "https://cleanuri.com/api/v1/shorten";
     const method = request.httpMethod;
   
     if (method !== 'POST') {
-       
+       return{
+           statusCode: 405,
+           Error: 'Wrong method used'
+        }
     }
     let requestBody = await request.json();
    
@@ -96,5 +104,11 @@ export default async function proxyHandler(request,callback) {
              'content-type': 'application/json'
             }
     })
-    return proxiedResponse;
-};*/
+    
+    const data = await proxiedResponse.json();
+    console.log(' data',data);
+    return{
+        statusCode:200,
+        body: JSON.stringify(data),
+    };
+};

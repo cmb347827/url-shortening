@@ -36,16 +36,14 @@ const urlEncoded=()=>{
      return encodeURIComponent(data.input.value);
 }
 
-function getFetchPost(){
+async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
 	//const url = '/.netlify/functions/serverlessFetch';
 	const url = '/.netlify/functions/octo';
 	
-	fetch(url, {
+	await fetch(url, {
        method: 'POST',
-       body: {
-			url: JSON.stringify(data.encodedUrl),
-		},
+       body:  JSON.stringify({ url: data.input.value }),
        headers: {
           'Content-Type': 'application/json'
        }
@@ -55,6 +53,7 @@ function getFetchPost(){
 		     console.log('in getfetchpost', content);
 	    })
 	    .catch(console.error);
+	
 }
 
 
