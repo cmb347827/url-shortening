@@ -83,17 +83,19 @@ import fetch from 'node-fetch';
 }
 */
 
-
+//You're currently returning a plain object. The error is telling you that it needs to be an instance of Response
+//It should give the specification of the constructor of the response class.
+// You need to create a response with the body you want 
 export default async function proxyHandler(request) {
     //const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
     const url = "https://cleanuri.com/api/v1/shorten";
     const method = request.httpMethod;
   
     if (method !== 'POST') {
-       return{
-           statusCode: 405,
-           Error: 'Wrong method used'
-        }
+       /*return{
+           //statusCode: 405,
+           //Error: 'Wrong method used'
+        }*/
     }
     let requestBody = await request.json();
    
@@ -106,9 +108,12 @@ export default async function proxyHandler(request) {
     })
     
     const data = await proxiedResponse.json();
-    console.log(' data',data);
-    return{
-        statusCode:200,
-        body: JSON.stringify(data),
+    console.log(' data::',data.result_url);
+    
+    
+    return proxiedResponse= {
+        status:200,
+        result_url:JSON.stringify(data.result_url),
     };
+
 };

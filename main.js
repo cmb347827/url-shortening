@@ -58,7 +58,7 @@ async function getFetchPost(){
 
 
  function returnShort(){
-	data.encodedUrl = urlEncoded();
+	data.encodedUrl = urlEncoded();  ////////////////////////////////////////////////
     let shortened = getFetchPost();
 	
 	
