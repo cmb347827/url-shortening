@@ -83,22 +83,19 @@ import fetch from 'node-fetch';
 }
 */
 
-//You're currently returning a plain object. The error is telling you that it needs to be an instance of Response
-//It should give the specification of the constructor of the response class.
-// You need to create a response with the body you want 
+
 export default async function proxyHandler(request) {
-    //const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
     const url = "https://cleanuri.com/api/v1/shorten";
-    const method = request.httpMethod;
-  
+    const method = request.method;
+    
     if (method !== 'POST') {
-       /*return{
-           //statusCode: 405,
-           //Error: 'Wrong method used'
-        }*/
+        const init = { "status" : 500 , "statusText" : "The method used wasn't POST!" };
+        const response = new Response(null,init);
+        return response;
     }
+
     let requestBody = await request.json();
-   
+    
     let proxiedResponse = await fetch(url, {
              method: 'POST',
              body: JSON.stringify(requestBody),
@@ -108,12 +105,14 @@ export default async function proxyHandler(request) {
     })
     
     const data = await proxiedResponse.json();
-    console.log(' data::',data.result_url);
-    
-    
-    return proxiedResponse= {
-        status:200,
-        result_url:JSON.stringify(data.result_url),
-    };
+    console.log('data in octo',data);
+    const response = new Response(
+        JSON.stringify(data),{
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    console.log('response in octo',response);
+    return response;
 
 };

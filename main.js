@@ -41,26 +41,34 @@ async function getFetchPost(){
 	//const url = '/.netlify/functions/serverlessFetch';
 	const url = '/.netlify/functions/octo';
 	
-	await fetch(url, {
+	return await fetch(url, {
        method: 'POST',
        body:  JSON.stringify({ url: data.input.value }),
        headers: {
           'Content-Type': 'application/json'
        }
     })
-	.then((resp)=>resp.json())
-	     .then((content)=>{
-		     console.log('in getfetchpost', content);
-	    })
-	    .catch(console.error);
-	
+	.then( response => {
+        if (!response.ok) { 
+			console.log('response',response.statusText);
+			throw response;
+		}
+		return response.json();
+    })
+	.then(content=>{
+		     console.log('content',content.result_url);
+			 return content.result_url;
+	})
+	.catch(error => {
+           console.error("Caught error in promise:", error);
+    });
 }
 
 
- function returnShort(){
-	data.encodedUrl = urlEncoded();  ////////////////////////////////////////////////
-    let shortened = getFetchPost();
-	
+async function returnShort(){
+	data.encodedUrl = urlEncoded();  ////////////////////////////////////////////////+ statustext
+    let shortened =  await getFetchPost();
+	console.log('shortened',shortened);
 	
 	const inputUrl={
 		old_url : data.input.value,
