@@ -1,0 +1,20 @@
+{
+  "name": "url-shortening",
+  "version": "1.0.0",
+  "description": "![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmb347827/url-shortening.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmb347827/url-shortening/issues"
+  },
+  "homepage": "https://github.com/cmb347827/url-shortening#readme"
+}
