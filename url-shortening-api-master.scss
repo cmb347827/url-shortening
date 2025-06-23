@@ -63,12 +63,6 @@ body {
 .show{
     display:flex;
 }
-/*.hide-in-mobile{
-  display:none;
-  @media screen and(min-width:768px){
-     display:block;
-  }
-}*/
 
 .top-z-index{
   //needed for z-index.
@@ -76,7 +70,9 @@ body {
   z-index: 1;
   opacity:1;
 }
-
+.red-font{
+   @include font-color(map-get($colors,Red),nth($fallback-colors,3));
+}
 .text-center{
    text-align:center;
 }
@@ -139,14 +135,17 @@ body {
 	width: 1px !important;
 	white-space: nowrap !important;            
 }
+.btn{
+    //padding: 5px 15px;
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+}
+
+
 
 .container{
-      //cutoff the blue shape on the right/left side
       
-      .btn{
-         padding: 5px 15px;
-         border-radius: 5px;
-      }
       
       nav ul {
         list-style-type:none;
@@ -207,11 +206,18 @@ body {
         }
         
         &__secondChild{
+            .min-height-btn{
+                min-height: 11em;
+            }
             #url{
                 width: 50em;
+                height: 40px;
             }
             ul {
               list-style-type:none;
+            }
+            #error{
+                font-weight:$font_weight-semibold;
             }
         }
        

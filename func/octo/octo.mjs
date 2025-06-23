@@ -1,118 +1,49 @@
 
 import fetch from 'node-fetch';
 
-// This version directly below works, but only for the github link
-/*export const handler = async (event,context,callback) => {
-    const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
-    //const url = "https://cleanuri.com/api/v1/shorten";
- 
-    const res = await fetch(url);
-    data = await res.json();
 
-    callback(null,{
-        statusCode:200,
-        body: JSON.stringify({'in octo':data}),
-    });
-
-   
-}
-*/
-
-// This version directly below works, but only for the github link
-/*export const handler = async (request,context,callback) => {
-    const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
-    //const url = "https://cleanuri.com/api/v1/shorten";
-
-    const method = request.httpMethod;
-    
-  
-    if (method !== 'POST') {
-        callback(null,{
-            statusCode:405,
-            body: JSON.stringify('in octo error'),
-        });
-    }
- 
-    const res = await fetch(url);
-    console.log('res',res);
-    data = await res.json();
-    console.log('data',data);
-    callback(null,{
-            statusCode:200,
-            body: JSON.stringify(data),
-    });
-}
-*/
-
-//Function octo has returned an error: Function returned an unsupported value. Accepted types are 'Response' or 'undefined'
-/*export default async function proxyHandler(request,callback) {
-    const url='https://raw.githubusercontent.com/cmb347827/static-job-listings-master/refs/heads/main/data.json';
-    //const url = "https://cleanuri.com/api/v1/shorten";
- 
-   
-    try{
-        const method = request.httpMethod;
-  
-        if (method !== 'POST') {
-           callback(null,{
-              statusCode:405,
-              body: JSON.stringify('Error: non-POST method used to fetch url'),
-           });
-        }
-        const requestBody = await request.json();
-        if(!requestBody){
-            throw new Error(`Request json error! Status: `);
-        }
-        let proxiedResponse = await fetch(url, {
-             method: 'POST',
-             body: JSON.stringify(requestBody),
-             headers: {
-             'content-type': 'application/json'
-            }
-        })
-        if(!proxiedResponse){
-            throw new Error(`HTTP error! Status: ${proxiedResponse.status}`);
-        }
-        console.log('proxied',proxiedResponse);
-        return proxiedResponse;
-    }catch(error){
-        console.error('Fetch error:', error.message);
-        return null;
-    }
-        
-}
-*/
 
 
 export default async function proxyHandler(request) {
     const url = "https://cleanuri.com/api/v1/shorten";
-    const method = request.method;
-    
-    if (method !== 'POST') {
-        const init = { "status" : 500 , "statusText" : "The method used wasn't POST!" };
-        const response = new Response(null,init);
-        return response;
-    }
+   
+    try{
+        const method = request.method;
+        if (method !== 'POST') {
+            const init = { "status" : 500 , "statusText" : "The method used wasn't POST!" };
+            const response = new Response(null,init);
+            if(!response){
+                throw new Error('Failed to create response object');
+            }
+            return response;
+        }
 
-    let requestBody = await request.json();
-    
-    let proxiedResponse = await fetch(url, {
-             method: 'POST',
-             body: JSON.stringify(requestBody),
-             headers: {
-             'content-type': 'application/json'
-            }
-    })
-    
-    const data = await proxiedResponse.json();
-    console.log('data in octo',data);
-    const response = new Response(
-        JSON.stringify(data),{
-            headers: {
-            'Content-Type': 'application/json'
-            }
-        });
-    console.log('response in octo',response);
-    return response;
+
+        let requestBody = await request.json();
+        let proxiedResponse = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(requestBody),
+                headers: {
+                'content-type': 'application/json'
+                }
+        })
+        if(!proxiedResponse){
+            throw new Error('Failed to create response object');
+        }
+
+        const data = await proxiedResponse.json();
+        const response = new Response(
+            JSON.stringify(data),{
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            });
+        if(!response){
+            throw new Error('Failed to create response object');
+        }
+        return response;
+    }catch(error){
+        console.log(error.message);
+    }
 
 };

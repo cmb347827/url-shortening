@@ -77,6 +77,10 @@
 .flex-basis-50 {
   flex-basis: 50%; }
 
+@media screen and (min-width: 768px) {
+  .me-2-md {
+    margin-right: 2em; } }
+
 .me-2 {
   margin-right: 2em; }
 
@@ -143,16 +147,14 @@ body {
 .show {
   display: flex; }
 
-/*.hide-in-mobile{
-  display:none;
-  @media screen and(min-width:768px){
-     display:block;
-  }
-}*/
 .top-z-index {
   position: relative;
   z-index: 1;
   opacity: 1; }
+
+.red-font {
+  color: Red;
+  color: #f46262; }
 
 .text-center {
   text-align: center; }
@@ -208,9 +210,11 @@ body {
   width: 1px !important;
   white-space: nowrap !important; }
 
-.container .btn {
-  padding: 5px 15px;
-  border-radius: 5px; }
+.btn {
+  border-radius: 5px;
+  height: 40px;
+  width: 150px; }
+
 .container nav ul {
   list-style-type: none;
   width: 100%; }
@@ -240,10 +244,15 @@ body {
   .container__firstChild #hero {
     max-width: 75%;
     max-height: 75%; } }
+.container__secondChild .min-height-btn {
+  min-height: 11em; }
 .container__secondChild #url {
-  width: 50em; }
+  width: 50em;
+  height: 40px; }
 .container__secondChild ul {
   list-style-type: none; }
+.container__secondChild #error {
+  font-weight: 600; }
 .container__fourthChild {
   background: #3b3054 url("./images/bg-boost-mobile.svg") top center/100% 100%;
   color: Snow;

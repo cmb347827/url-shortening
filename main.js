@@ -20,6 +20,7 @@ function clearLocalStorage(){
 //all data.
 const data={
 	input: document.getElementById('url'),
+	error: document.getElementById('error-message'),
 	url:document.getElementById('get_url'),
     //urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
 	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-|%20|\+)[a-z0-9]{0,63}){1,2024}/,
@@ -66,9 +67,8 @@ async function getFetchPost(){
 
 
 async function returnShort(){
-	data.encodedUrl = urlEncoded();  ////////////////////////////////////////////////+ statustext
+	data.encodedUrl = urlEncoded();  //? + octo statustext?
     let shortened =  await getFetchPost();
-	console.log('shortened',shortened);
 	
 	const inputUrl={
 		old_url : data.input.value,
@@ -87,11 +87,15 @@ async function returnShort(){
 
 const validateURL=(event)=>{
 	event.preventDefault();
-	const valid_old = data.urlRegTwo.test(data.input.value.trim());
-	if(valid_old){
-        returnShort();
-	}else{
-		//error message beneath input 
+	if(data.input.value.length > 0){
+		data.error.innerHTML='';
+        const valid_old = data.urlRegTwo.test(data.input.value.trim());
+		if(valid_old){
+           returnShort();
+		}
+	} else{
+		//add an error message beneath input field
+        data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
 		//clipboard api.
 	}
 }
@@ -100,7 +104,6 @@ const addListener =()=>{
 	data.url.addEventListener('click',validateURL);
 	data.clearBtn.addEventListener('click',clearLocalStorage);
 	[...document.querySelectorAll('.js-copy-btn')].forEach(btn=>btn.addEventListener('click',(e)=>{
-        console.log('in js copybnt');
 		btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
 	}));
 }
@@ -109,9 +112,9 @@ const updateUrl_container=()=>{
 		data.urlData.forEach(
 			({old_url,shorten_url}) => {
 					(data.urls_container.innerHTML += `
-						  <li class='display-flex justify-content-center'>
+						  <li class='display-flex justify-content-center align-items-center'>
 						     <p class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
-							 <button class='js-copy-btn' type='button'>Copy</button>
+							 <button class='js-copy-btn btn' type='button'>Copy</button>
 					      </li>
 				   `)
 			}

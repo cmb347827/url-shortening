@@ -60,7 +60,7 @@
                     <p>Build your brand’s recognition and get detailed insights 
                     on how your links are performing.</p>
 
-                    <button type='button'>Get Started</button>
+                    <button class='btn' type='button'>Get Started</button>
                 </div>
                 <div class="relativeouter flex-basis-50 order-zero order-md-one">
                     <img class='svg-100' src="./images/illustration-working.svg" alt=" "  width="733" height="482">
@@ -70,9 +70,14 @@
             <section class="container__secondChild">
                  <form method="post" action="#"  class="display-flex justify-content-center">
                       <label class='sr-only' for="url">Enter the url to be shortened</label>
-                      <input placeholder=" Shorten a link here..." type="text" id="url" name="url"  minlength="13"  class="me-1" />
-                      <button id='get_url' type="submit">Shorten It!</button>
-                      <button id="clear_all" type="button">Remove All</button>
+                      <div class="min-height-btn">
+                          <input placeholder=" Shorten a link here..." type="text" id="url" name="url"  minlength="13"  class="me-1" />
+                          <div id="error-message"></div>
+                      </div>
+                      <div class="min-height-btn display-flex">
+                           <button class='btn' id='get_url' type="submit">Shorten It!</button>
+                           <button class='btn' id="clear_all" type="button">Remove All</button>
+                      </div>
                  </form>
                  <ul id="urls_container" class="text-center">
                
