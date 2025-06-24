@@ -21,8 +21,7 @@ function clearLocalStorage(){
 const data={
 	input: document.getElementById('url'),
 	error: document.getElementById('error-message'),
-	url:document.getElementById('get_url'),
-    //urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
+	url_btn:document.getElementById('get_url'),
 	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-|%20|\+)[a-z0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.getElementById('urls_container'),
@@ -67,7 +66,7 @@ async function getFetchPost(){
 
 
 async function returnShort(){
-	data.encodedUrl = urlEncoded();  //? + octo statustext?
+	data.encodedUrl = urlEncoded();  //? + octo statustext?  + error message when entering wrong type of url
     let shortened =  await getFetchPost();
 	
 	const inputUrl={
@@ -76,12 +75,20 @@ async function returnShort(){
 	}
 	data.urlData.push(inputUrl);
 	saveToStorage('url',data.urlData);
-	let tempId= 'tempId';
+
+	//button classlist variable
+	let includedClasses='not-shown';
+	//if navigator.writetext is support, update the button classlist so the buttonw iwll be shown with the shown class.
+	if (navigator.clipboard.writeText) {
+        //navigator.clipboard.writeText() is supported, add the 'Copy' button.
+        includedClasses='js-copy-btn btn shown';
+    }
 	data.urls_container.innerHTML += `
-		<li class='display-flex justify-content-center'>
-			<p class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
-			<button id='tempId' class='js-copy-btn' type='button'>Copy</button>
-		</li>`;
+			<li class='display-flex justify-content-center align-items-center'>
+				<p data-copy='some text' class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
+				<button class='${includedClasses}' type='button'>Copy</button>
+			</li>
+	`;
 	addListener();
 }
 
@@ -99,22 +106,51 @@ const validateURL=(event)=>{
 		//clipboard api.
 	}
 }
+const clipBoard = async (btnData) => {
+    if (!navigator.clipboard) {
+         return;
+    }
+	//Chrome supports the API’s readText() method, while Firefox doesn’t.
+	// copy text TO the clipboard
+	console.log('btndata',btnData);
+	if (navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(btnData);
+    }
+
+    // get text FROM the clipboard
+	if (navigator.clipboard.readText) {
+        const text = await navigator.clipboard.readText();
+    }
+}
 
 const addListener =()=>{
-	data.url.addEventListener('click',validateURL);
+	//add listener to the input field button "shorten it"
+	data.url_btn.addEventListener('click',validateURL);
+
+	//add listeners to all the shortend link buttons , all the 'copy' buttons.
 	data.clearBtn.addEventListener('click',clearLocalStorage);
 	[...document.querySelectorAll('.js-copy-btn')].forEach(btn=>btn.addEventListener('click',(e)=>{
 		btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
+		const btnData = $(this).prop('data-copy');
+		console.log('in addlisten',btnData);
+		clipBoard(btnData);
 	}));
 }
 const updateUrl_container=()=>{
+	//button classlist variable
+	let includedClasses='not-shown';
+	//if navigator.writetext is support, update the button classlist so the buttonw iwll be shown with the shown class.
+	if (navigator.clipboard.writeText) {
+        //navigator.clipboard.writeText() is supported, add the 'Copy' button.
+        includedClasses='js-copy-btn btn shown';
+    }
     if(data.urlData){
 		data.urlData.forEach(
 			({old_url,shorten_url}) => {
 					(data.urls_container.innerHTML += `
 						  <li class='display-flex justify-content-center align-items-center'>
-						     <p class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
-							 <button class='js-copy-btn btn' type='button'>Copy</button>
+						     <p data-copy='some text' class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
+							 <button class='${includedClasses}' type='button'>Copy</button>
 					      </li>
 				   `)
 			}
