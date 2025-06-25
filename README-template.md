@@ -53,13 +53,12 @@ Users should be able to:
 
 ### What I learned
 
-- I decided to go by a url format help site, as it's been a while since I looked at url formats. I used the recommend format to come up with the regular expression that is used to detect if the url is valid format. See link 1.
+- I decided to go by a url format help site, as it's been a while since I looked at url formats. I used the recommend format to come up with the regular expression that is used to detect if the url is valid format. See link 1. My regex does accept the protocol schema, as the design allows this. 
 - I tried to find ways to integrate my code with the cleanuri.api. I tried using fetch() as well as XMLHttpRequest() , both caused CORS errors. Then I read about using a proxy server (for instance, CORS anywhere) to circumvent the CORS error.
   This did not work either as also CORS anywhere was no longer functional. See link 2. Somebody at Discord said I will need backend for this, and this includes Node and Netlify , for serverless functions. 
 - I encountered some errors while taking a netlify course (see links 3 and 4).
 - And then I got stuck in the last video ,of 3, of the course in which I could not get the , similar to the course code, with my code to work. I finally , after more then a week found why (see link 5). The netlify tutorial I followed was 4 years old, but I assumed that that was okay still. 
-- I found another tutorial that used the keyword default in their function, this too, didn't work for me it caused endless error messages , till I could narrow down the error to the use of this word.
--  the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console.
+-  I wasted too much time, before I figured that with the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console.
 
   
 

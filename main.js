@@ -16,13 +16,15 @@ function clearLocalStorage(){
  function loadFromStorage(set,data){
 	data = JSON.parse(localStorage.getItem(set));  
 }
+//[a-z A-Z]{3,255}:\/\/(w{0,3})(_?)([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+|\_)[a-z A-Z 0-9 ]{0,63}){1,2024}
 
+///[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
 //all data.
 const data={
 	input: document.getElementById('url'),
 	error: document.getElementById('error-message'),
 	url_btn:document.getElementById('get_url'),
-	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-|%20|\+)[a-z0-9]{0,63}){1,2024}/,
+	urlRegTwo:/[a-z A-Z]{3,255}:\/\/(w{0,3})(_?)([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+|\_)[a-z A-Z 0-9 ]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.getElementById('urls_container'),
 	encodedUrl:'',
@@ -40,6 +42,7 @@ async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
 	//const url = '/.netlify/functions/serverlessFetch';
 	const url = '/.netlify/functions/octo';
+	data.input.value = data.input.value.toLowerCase();
 	
 	return await fetch(url, {
        method: 'POST',
@@ -66,7 +69,7 @@ async function getFetchPost(){
 
 
 async function returnShort(){
-	data.encodedUrl = urlEncoded();  //? + octo statustext?  + error message when entering wrong type of url
+	data.encodedUrl = urlEncoded();  //? + octo statustext?  
     let shortened =  await getFetchPost();
 	
 	const inputUrl={
@@ -99,11 +102,12 @@ const validateURL=(event)=>{
         const valid_old = data.urlRegTwo.test(data.input.value.trim());
 		if(valid_old){
            returnShort();
+		}else{
+           data.error.innerHTML = `<p class='red-font'>Enter a correct format url : https://domainname/page, https://domainname.page_1 etc</p>`;
 		}
 	} else{
 		//add an error message beneath input field
         data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
-		//clipboard api.
 	}
 }
 const clipBoard = async (btnData) => {
@@ -120,6 +124,7 @@ const clipBoard = async (btnData) => {
     // get text FROM the clipboard
 	if (navigator.clipboard.readText) {
         const text = await navigator.clipboard.readText();
+		//do something with text.
     }
 }
 
@@ -131,8 +136,8 @@ const addListener =()=>{
 	data.clearBtn.addEventListener('click',clearLocalStorage);
 	[...document.querySelectorAll('.js-copy-btn')].forEach(btn=>btn.addEventListener('click',(e)=>{
 		btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
-		const btnData = $(this).prop('data-copy');
-		console.log('in addlisten',btnData);
+		let sibling = btn.previousElementSibling;
+		const btnData = $(sibling).attr('data-copy');
 		clipBoard(btnData);
 	}));
 }
@@ -149,7 +154,7 @@ const updateUrl_container=()=>{
 			({old_url,shorten_url}) => {
 					(data.urls_container.innerHTML += `
 						  <li class='display-flex justify-content-center align-items-center'>
-						     <p data-copy='some text' class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
+						     <p data-copy='${old_url} : ${shorten_url}' class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
 							 <button class='${includedClasses}' type='button'>Copy</button>
 					      </li>
 				   `)
