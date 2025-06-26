@@ -99,14 +99,20 @@ const validateURL=(event)=>{
 	event.preventDefault();
 	if(data.input.value.length > 0){
 		data.error.innerHTML='';
-        const valid_old = data.urlRegTwo.test(data.input.value.trim());
+        //const valid_old = data.urlRegTwo.test(data.input.value.trim());
+		const valid_old = validator.isURL(data.input.value.trim());
 		if(valid_old){
            returnShort();
 		}else{
+		   data.input.style.border='2px solid red';
+		   let place= data.input.getAttribute('placeholder');
+		   place.style.setProperty("--c", "red");
            data.error.innerHTML = `<p class='red-font'>Enter a correct format url : https://domainname/page, https://domainname.page_1 etc</p>`;
 		}
 	} else{
 		//add an error message beneath input field
+		data.input.style.border='2px solid red';
+		document.querySelector('input[type=text]').style.setProperty("--c", "red");
         data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
 	}
 }

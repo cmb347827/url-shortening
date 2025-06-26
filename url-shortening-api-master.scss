@@ -76,10 +76,8 @@ body {
 .text-center{
    text-align:center;
 }
-.text-start-md{
-    @media screen and(min-width:768px){
-      text-align:left;
-    }
+.text-start{
+    text-align:start;
 }
 .text-uppercase{
    text-transform: uppercase;
@@ -148,8 +146,23 @@ body {
     display:none;
 }
 
-
-
+h1 {
+  //due to new h1 html standard rules
+  margin-block: 0.67em;
+  font-size: 2em;
+}
+.no-btn{
+     @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+     border:none;
+}
+.green-rounded-button{
+    border-radius: 14px;
+    @include font-color(map-get($colors,White),nth($fallback-colors,8));
+    @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
+}
+.border{
+   border:2px solid red;
+}
 .container{
       
       
@@ -212,25 +225,43 @@ body {
         }
         
         &__secondChild{
-            .min-height-btn{
-                min-height: 11em;
+            #url-form{
+               background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
+               min-height: 8em;
             }
-            #url{
-                width: 50em;
-                height: 40px;
+            #left{
+                height:4em;
+                #url{
+                    width: 50em;
+                    height: 40px;
+                }
+                 #error-message{
+                    font-weight:$font_weight-semibold;
+                    line-height: 1px;
+                }
+            }
+            #right{
+                height: 4em;
             }
             ul {
               list-style-type:none;
             }
-            #error{
-                font-weight:$font_weight-semibold;
+            ::placeholder {
+                color: var(--c, black);
             }
             #urls_container{
-               margin-top: -2em;
+                margin-top: 2em;
             }
             @media screen and(min-width:768px){
-                  #urls_container{
-                      margin-top: -6em;
+                  #url-form{
+                     background:map-get($colors,Dark Violet) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
+                  }
+            }
+            @media screen and(max-width:1200px){
+                  #url{
+                    position:relative;
+                    top: 1em;
+                    max-width:40em;
                   }
             }
         }
@@ -245,6 +276,10 @@ body {
               }
         }
         &__fifthChild{
+             h5{
+                padding-bottom:1em;
+                margin:0;
+             }
              padding: 1em;
              @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
              li ,a{
@@ -252,6 +287,10 @@ body {
              }
              @media screen and(min-width: 768px){
                  padding: 2em;
+                 ul{
+                   padding:0;
+                   margin:0;
+                 }
              }
         }
     
