@@ -122,7 +122,6 @@ const clipBoard = async (btnData) => {
     }
 	//Chrome supports the API’s readText() method, while Firefox doesn’t.
 	// copy text TO the clipboard
-	console.log('btndata',btnData);
 	if (navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(btnData);
     }

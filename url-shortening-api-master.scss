@@ -157,22 +157,22 @@ h1 {
 }
 .green-rounded-button{
     border-radius: 14px;
+    border:none;
     @include font-color(map-get($colors,White),nth($fallback-colors,8));
     @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
 }
-.border{
-   border:2px solid red;
+.pos-relative{
+   position:relative;
 }
 .container{
-      
-      
+      @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
       nav ul {
         list-style-type:none;
         width: 100%;
       } 
 
       header{
-  
+            @include bg-color(map-get($colors,Grayish Violet),nth($fallback-colors,5));
             a{
               text-decoration:none;
               color: black;
@@ -207,6 +207,7 @@ h1 {
              padding-bottom: 1em;
         }
         &__firstChild{
+             @include bg-color(map-get($colors,Grayish Violet),nth($fallback-colors,5));
              #first-text{
                  text-align:center;
                  @media screen and(min-width:767px){
@@ -225,6 +226,8 @@ h1 {
         }
         
         &__secondChild{
+            
+            @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
             #url-form{
                background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
                min-height: 8em;
@@ -265,7 +268,44 @@ h1 {
                   }
             }
         }
-       
+        &__thirdChild{
+              div.white{
+                   @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+                   margin:3em;
+              }
+              @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
+             .svg-icon{
+                 width: 80px;
+                 height:80px;
+                 border-radius:50%;
+                 @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,6));
+                 transform: translate(350%,-50%);
+             }
+            
+            @media screen and(min-width:768px){
+                  #green-line{
+                      @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
+                      height: 20px;
+                      width: 30em;
+
+                  }
+                  .down-1em{
+                     top: 1em;
+                  }
+                  .down-2em{
+                     top: 2em;
+                  }
+                  .down-10em{
+                     top: 10em;
+                  }
+                  div.white{
+                     margin:1em;
+                  }
+                  .svg-icon{
+                      transform: translate(0,-50%);
+                  }
+            }
+        }
         &__fourthChild{
               background:hsl(257, 27%, 26%) url('./images/bg-boost-mobile.svg') top center/100% 100%;
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
