@@ -165,12 +165,12 @@ h1 {
    position:relative;
 }
 .container{
-      @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
+      //@include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
       nav ul {
         list-style-type:none;
         width: 100%;
       } 
-
+      
       header{
             @include bg-color(map-get($colors,Grayish Violet),nth($fallback-colors,5));
             a{
@@ -226,11 +226,15 @@ h1 {
         }
         
         &__secondChild{
-            
+             
             @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
             #url-form{
                background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
                min-height: 8em;
+            }
+            .added-url{
+                @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+                margin-bottom: 0.1em;
             }
             #left{
                 height:4em;
@@ -269,6 +273,7 @@ h1 {
             }
         }
         &__thirdChild{
+              padding-top: 2em;
               div.white{
                    @include bg-color(map-get($colors,White),nth($fallback-colors,8));
                    margin:3em;

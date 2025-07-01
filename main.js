@@ -24,7 +24,7 @@ const data={
 	input: document.getElementById('url'),
 	error: document.getElementById('error-message'),
 	url_btn:document.getElementById('get_url'),
-	urlRegTwo:/[a-z A-Z]{3,255}:\/\/(w{0,3})(_?)([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+|\_)[a-z A-Z 0-9 ]{0,63}){1,2024}/,
+	urlRegTwo:/[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.getElementById('urls_container'),
 	encodedUrl:'',
@@ -42,19 +42,22 @@ async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
 	//const url = '/.netlify/functions/serverlessFetch';
 	const url = '/.netlify/functions/octo';
-	data.input.value = data.input.value.toLowerCase();
+	//data.input.value = data.input.value.toLowerCase();
+	const serverUrl ='https://cleanuri.com/api/v1/shorten';
 	
 	return await fetch(url, {
        method: 'POST',
        body:  JSON.stringify({ url: data.input.value }),
        headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
        }
     })
 	.then( response => {
         if (!response.ok) { 
-			console.log('response',response.statusText);
-			throw response;
+			throw new Error(`Response status ${response.status}`, { cause: response });
+		}else if(response.status ===204){
+			alert(`There is no response from the ${serverUrl}`);
+			throw new Error(`Request fullfilled successful but there is no data in the reponse body, likely the server ${serverUrl} is down`);
 		}
 		return response.json();
     })
@@ -69,7 +72,7 @@ async function getFetchPost(){
 
 
 async function returnShort(){
-	data.encodedUrl = urlEncoded();  //? + octo statustext?  
+	//data.encodedUrl = urlEncoded();  //? + octo statustext?  
     let shortened =  await getFetchPost();
 	
 	const inputUrl={
@@ -87,8 +90,8 @@ async function returnShort(){
         includedClasses='js-copy-btn btn shown';
     }
 	data.urls_container.innerHTML += `
-			<li class='display-flex justify-content-center align-items-center'>
-				<p data-copy='some text' class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
+			<li class='display-flex justify-content-center align-items-center added-url'>
+				<p data-copy='${inputUrl.old_url} : ${inputUrl.shorten_url}'  class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
 				<button class='${includedClasses}' type='button'>Copy</button>
 			</li>
 	`;
@@ -99,9 +102,11 @@ const validateURL=(event)=>{
 	event.preventDefault();
 	if(data.input.value.length > 0){
 		data.error.innerHTML='';
-        //const valid_old = data.urlRegTwo.test(data.input.value.trim());
-		const valid_old = validator.isURL(data.input.value.trim());
+		data.input.style.border='none';
+        const valid_old = data.urlRegTwo.test(data.input.value.trim());
+		//const valid_old = validator.isURL(data.input.value.trim());
 		if(valid_old){
+			console.log('data.input.value',data.input.value);
            returnShort();
 		}else{
 		   data.input.style.border='2px solid red';
@@ -116,20 +121,34 @@ const validateURL=(event)=>{
         data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
 	}
 }
-const clipBoard = async (btnData) => {
+const clipBoardWrite = async (btnData) => {
     if (!navigator.clipboard) {
          return;
     }
 	//Chrome supports the API’s readText() method, while Firefox doesn’t.
-	// copy text TO the clipboard
-	if (navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(btnData);
+	// copy text TO the clipboard 
+	if (navigator.clipboard.writeText && typeof navigator.clipboard === 'object') {
+        try {
+			await navigator.clipboard.writeText(btnData);
+		} catch (error) {
+			console.error(error);
+		}
     }
-
-    // get text FROM the clipboard
-	if (navigator.clipboard.readText) {
-        const text = await navigator.clipboard.readText();
-		//do something with text.
+}
+const clipBoardRead= async()=>{
+    if (!navigator.clipboard) {
+         return;
+    }
+	const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
+    const permissionStatus = await navigator.permissions.query(queryOpts);
+	// get text FROM the clipboard
+	if (navigator.clipboard.readText && permissionStatus) {
+        try {
+			const text = await navigator.clipboard.readText();
+			console.log(text);
+		} catch (error) {
+			console.error(error);
+		}
     }
 }
 
@@ -143,7 +162,8 @@ const addListener =()=>{
 		btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
 		let sibling = btn.previousElementSibling;
 		const btnData = $(sibling).attr('data-copy');
-		clipBoard(btnData);
+		btn.style.backgroundColor='lighten(hsl(255, 11%, 22%),10)';
+		clipBoardWrite(btnData);
 	}));
 }
 const updateUrl_container=()=>{
@@ -158,7 +178,7 @@ const updateUrl_container=()=>{
 		data.urlData.forEach(
 			({old_url,shorten_url}) => {
 					(data.urls_container.innerHTML += `
-						  <li class='display-flex justify-content-center align-items-center'>
+						  <li class='display-flex justify-content-center align-items-center added-url'>
 						     <p data-copy='${old_url} : ${shorten_url}' class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
 							 <button class='${includedClasses}' type='button'>Copy</button>
 					      </li>
@@ -195,6 +215,6 @@ $(window).on('load',function(){
     /*data.subscribe.addEventListener('click',(e)=>{
         e.preventDefault();
 		keyPress(e);
-	})
-	*/
+	})*/
+	
 });

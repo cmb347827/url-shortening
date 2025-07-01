@@ -246,136 +246,138 @@ h1 {
 .pos-relative {
   position: relative; }
 
-.container {
+.container nav ul {
+  list-style-type: none;
+  width: 100%; }
+.container header {
+  background-color: Thistle;
+  background-color: #9e9aa7; }
+  .container header a {
+    text-decoration: none;
+    color: black; }
+  .container header #menubutton {
+    margin: 15px 20px; }
+  .container header #navbarCollapse hr {
+    color: white; }
+  .container header #navbarCollapse li {
+    padding-bottom: 2em; }
+    .container header #navbarCollapse li a {
+      font-size: 2rem;
+      font-weight: 500; }
+      @media screen and (min-width: 768px) {
+        .container header #navbarCollapse li a {
+          font-size: 1em; } }
+.container section {
+  padding-bottom: 1em; }
+.container__firstChild {
+  background-color: Thistle;
+  background-color: #9e9aa7; }
+  .container__firstChild #first-text {
+    text-align: center; }
+    @media screen and (min-width: 767px) {
+      .container__firstChild #first-text {
+        text-align: start; } }
+  @media screen and (max-width: 767px) {
+    .container__firstChild #hero {
+      max-width: 75%;
+      max-height: 75%; } }
+.container__secondChild {
   background-color: LightGray;
   background-color: #bfbfbf; }
-  .container nav ul {
-    list-style-type: none;
-    width: 100%; }
-  .container header {
-    background-color: Thistle;
-    background-color: #9e9aa7; }
-    .container header a {
-      text-decoration: none;
-      color: black; }
-    .container header #menubutton {
-      margin: 15px 20px; }
-    .container header #navbarCollapse hr {
-      color: white; }
-    .container header #navbarCollapse li {
-      padding-bottom: 2em; }
-      .container header #navbarCollapse li a {
-        font-size: 2rem;
-        font-weight: 500; }
-        @media screen and (min-width: 768px) {
-          .container header #navbarCollapse li a {
-            font-size: 1em; } }
-  .container section {
-    padding-bottom: 1em; }
-  .container__firstChild {
-    background-color: Thistle;
-    background-color: #9e9aa7; }
-    .container__firstChild #first-text {
-      text-align: center; }
-      @media screen and (min-width: 767px) {
-        .container__firstChild #first-text {
-          text-align: start; } }
-    @media screen and (max-width: 767px) {
-      .container__firstChild #hero {
-        max-width: 75%;
-        max-height: 75%; } }
-  .container__secondChild {
-    background-color: LightGray;
-    background-color: #bfbfbf; }
+  .container__secondChild #url-form {
+    background: #3b3054 url(./images/bg-shorten-mobile.svg) top center/100% 100%;
+    min-height: 8em; }
+  .container__secondChild .added-url {
+    background-color: Snow;
+    background-color: white;
+    margin-bottom: 0.1em; }
+  .container__secondChild #left {
+    height: 4em; }
+    .container__secondChild #left #url {
+      width: 50em;
+      height: 40px; }
+    .container__secondChild #left #error-message {
+      font-weight: 600;
+      line-height: 1px; }
+  .container__secondChild #right {
+    height: 4em; }
+  .container__secondChild ul {
+    list-style-type: none; }
+  .container__secondChild ::placeholder {
+    color: var(--c, black); }
+  .container__secondChild #urls_container {
+    margin-top: 2em; }
+  @media screen and (min-width: 768px) {
     .container__secondChild #url-form {
-      background: #3b3054 url(./images/bg-shorten-mobile.svg) top center/100% 100%;
-      min-height: 8em; }
-    .container__secondChild #left {
-      height: 4em; }
-      .container__secondChild #left #url {
-        width: 50em;
-        height: 40px; }
-      .container__secondChild #left #error-message {
-        font-weight: 600;
-        line-height: 1px; }
-    .container__secondChild #right {
-      height: 4em; }
-    .container__secondChild ul {
-      list-style-type: none; }
-    .container__secondChild ::placeholder {
-      color: var(--c, black); }
-    .container__secondChild #urls_container {
-      margin-top: 2em; }
-    @media screen and (min-width: 768px) {
-      .container__secondChild #url-form {
-        background: #3b3054 url(./images/bg-shorten-desktop.svg) top center/100% 100%; } }
-    @media screen and (max-width: 1200px) {
-      .container__secondChild #url {
-        position: relative;
-        top: 1em;
-        max-width: 40em; } }
-  .container__thirdChild {
-    background-color: LightGray;
-    background-color: #bfbfbf; }
-    .container__thirdChild div.white {
-      background-color: Snow;
-      background-color: white;
-      margin: 3em; }
-    .container__thirdChild .svg-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: DarkSlateBlue;
-      background-color: #35323e;
-      transform: translate(350%, -50%); }
-    @media screen and (min-width: 768px) {
-      .container__thirdChild #green-line {
-        background-color: Cyan;
-        background-color: #2acfcf;
-        height: 20px;
-        width: 30em; }
-      .container__thirdChild .down-1em {
-        top: 1em; }
-      .container__thirdChild .down-2em {
-        top: 2em; }
-      .container__thirdChild .down-10em {
-        top: 10em; }
-      .container__thirdChild div.white {
-        margin: 1em; }
-      .container__thirdChild .svg-icon {
-        transform: translate(0, -50%); } }
-  .container__fourthChild {
-    background: #3b3054 url("./images/bg-boost-mobile.svg") top center/100% 100%;
-    color: Snow;
-    color: white;
-    padding: 1em; }
-    @media screen and (min-width: 768px) {
-      .container__fourthChild {
-        background: #3b3054 url("./images/bg-boost-desktop.svg") top center/100% 100%;
-        padding: 2em; } }
-  .container__fifthChild {
-    padding: 1em;
-    background-color: Indigo;
-    background-color: #232127; }
-    .container__fifthChild h5 {
-      padding-bottom: 1em;
-      margin: 0; }
-    .container__fifthChild li, .container__fifthChild a {
-      color: Snow;
-      color: white; }
-    @media screen and (min-width: 768px) {
-      .container__fifthChild {
-        padding: 2em; }
-        .container__fifthChild ul {
-          padding: 0;
-          margin: 0; } }
-  @media screen and (min-width: 768px) {
-    .container #about-me {
+      background: #3b3054 url(./images/bg-shorten-desktop.svg) top center/100% 100%; } }
+  @media screen and (max-width: 1200px) {
+    .container__secondChild #url {
       position: relative;
-      top: 10em; } }
+      top: 1em;
+      max-width: 40em; } }
+.container__thirdChild {
+  padding-top: 2em;
+  background-color: LightGray;
+  background-color: #bfbfbf; }
+  .container__thirdChild div.white {
+    background-color: Snow;
+    background-color: white;
+    margin: 3em; }
+  .container__thirdChild .svg-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: DarkSlateBlue;
+    background-color: #35323e;
+    transform: translate(350%, -50%); }
   @media screen and (min-width: 768px) {
-    .container {
-      padding: 4em;
-      font-size: 1.2em; } }
+    .container__thirdChild #green-line {
+      background-color: Cyan;
+      background-color: #2acfcf;
+      height: 20px;
+      width: 30em; }
+    .container__thirdChild .down-1em {
+      top: 1em; }
+    .container__thirdChild .down-2em {
+      top: 2em; }
+    .container__thirdChild .down-10em {
+      top: 10em; }
+    .container__thirdChild div.white {
+      margin: 1em; }
+    .container__thirdChild .svg-icon {
+      transform: translate(0, -50%); } }
+.container__fourthChild {
+  background: #3b3054 url("./images/bg-boost-mobile.svg") top center/100% 100%;
+  color: Snow;
+  color: white;
+  padding: 1em; }
+  @media screen and (min-width: 768px) {
+    .container__fourthChild {
+      background: #3b3054 url("./images/bg-boost-desktop.svg") top center/100% 100%;
+      padding: 2em; } }
+.container__fifthChild {
+  padding: 1em;
+  background-color: Indigo;
+  background-color: #232127; }
+  .container__fifthChild h5 {
+    padding-bottom: 1em;
+    margin: 0; }
+  .container__fifthChild li, .container__fifthChild a {
+    color: Snow;
+    color: white; }
+  @media screen and (min-width: 768px) {
+    .container__fifthChild {
+      padding: 2em; }
+      .container__fifthChild ul {
+        padding: 0;
+        margin: 0; } }
+@media screen and (min-width: 768px) {
+  .container #about-me {
+    position: relative;
+    top: 10em; } }
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 4em;
+    font-size: 1.2em; } }
 
 /*# sourceMappingURL=url-shortening-api-master.css.map */
