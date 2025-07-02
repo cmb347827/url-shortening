@@ -162,6 +162,10 @@ body {
   color: Red;
   color: #f46262; }
 
+.green-font {
+  color: Cyan;
+  color: #3cd7d7; }
+
 .text-center {
   text-align: center; }
 
@@ -242,6 +246,17 @@ h1 {
   color: white;
   background-color: Cyan;
   background-color: #2acfcf; }
+  .green-rounded-button:hover {
+    background-color: Cyan;
+    background-color: #3cd7d7; }
+
+.dark-blue-rounded-button {
+  border-radius: 14px;
+  border: none;
+  color: Snow;
+  color: white;
+  background-color: DarkSlateBlue;
+  background-color: #35323e; }
 
 .pos-relative {
   position: relative; }
@@ -249,48 +264,45 @@ h1 {
 .container nav ul {
   list-style-type: none;
   width: 100%; }
-.container header {
-  background-color: Thistle;
-  background-color: #9e9aa7; }
-  .container header a {
-    text-decoration: none;
+.container header a {
+  text-decoration: none;
+  color: LightGray;
+  color: #c4c4c4; }
+  .container header a:hover {
     color: black; }
-  .container header #menubutton {
-    margin: 15px 20px; }
-  .container header #navbarCollapse hr {
-    color: white; }
-  .container header #navbarCollapse li {
-    padding-bottom: 2em; }
-    .container header #navbarCollapse li a {
-      font-size: 2rem;
-      font-weight: 500; }
-      @media screen and (min-width: 768px) {
-        .container header #navbarCollapse li a {
-          font-size: 1em; } }
+.container header #menubutton {
+  margin: 15px 20px; }
+.container header #navbarCollapse hr {
+  color: white; }
+.container header #navbarCollapse li {
+  padding-bottom: 2em; }
+  .container header #navbarCollapse li a {
+    font-size: 2rem;
+    font-weight: 500; }
+    @media screen and (min-width: 768px) {
+      .container header #navbarCollapse li a {
+        font-size: 1em; } }
 .container section {
   padding-bottom: 1em; }
-.container__firstChild {
-  background-color: Thistle;
-  background-color: #9e9aa7; }
-  .container__firstChild #first-text {
-    text-align: center; }
-    @media screen and (min-width: 767px) {
-      .container__firstChild #first-text {
-        text-align: start; } }
-  @media screen and (max-width: 767px) {
-    .container__firstChild #hero {
-      max-width: 75%;
-      max-height: 75%; } }
+.container__firstChild #first-text {
+  text-align: center; }
+  @media screen and (min-width: 767px) {
+    .container__firstChild #first-text {
+      text-align: start; } }
+@media screen and (max-width: 767px) {
+  .container__firstChild #hero {
+    max-width: 75%;
+    max-height: 75%; } }
 .container__secondChild {
-  background-color: LightGray;
-  background-color: #bfbfbf; }
+  background-color: Thistle;
+  background-color: #efeff1; }
   .container__secondChild #url-form {
     background: #3b3054 url(./images/bg-shorten-mobile.svg) top center/100% 100%;
     min-height: 8em; }
   .container__secondChild .added-url {
     background-color: Snow;
     background-color: white;
-    margin-bottom: 0.1em; }
+    margin: 1em 2em; }
   .container__secondChild #left {
     height: 4em; }
     .container__secondChild #left #url {
@@ -317,8 +329,8 @@ h1 {
       max-width: 40em; } }
 .container__thirdChild {
   padding-top: 2em;
-  background-color: LightGray;
-  background-color: #bfbfbf; }
+  background-color: Thistle;
+  background-color: #efeff1; }
   .container__thirdChild div.white {
     background-color: Snow;
     background-color: white;

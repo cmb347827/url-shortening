@@ -73,6 +73,9 @@ body {
 .red-font{
    @include font-color(map-get($colors,Red),nth($fallback-colors,3));
 }
+.green-font{
+   @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+}
 .text-center{
    text-align:center;
 }
@@ -160,22 +163,36 @@ h1 {
     border:none;
     @include font-color(map-get($colors,White),nth($fallback-colors,8));
     @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
+    &:hover{
+         @include bg-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+    }
+}
+.dark-blue-rounded-button{
+    border-radius: 14px;
+    border:none;
+    @include font-color(map-get($colors,White),nth($fallback-colors,8));
+    @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,6));
 }
 .pos-relative{
    position:relative;
 }
+
+
 .container{
-      //@include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
+     
       nav ul {
         list-style-type:none;
         width: 100%;
       } 
       
       header{
-            @include bg-color(map-get($colors,Grayish Violet),nth($fallback-colors,5));
+            
             a{
               text-decoration:none;
-              color: black;
+              @include font-color(lighten(map-get($colors,Gray),2),nth($fallback-colors,4));
+              &:hover{
+                 color:black;
+              }
             }
             #menubutton{
                margin: 15px 20px;                                              
@@ -207,7 +224,7 @@ h1 {
              padding-bottom: 1em;
         }
         &__firstChild{
-             @include bg-color(map-get($colors,Grayish Violet),nth($fallback-colors,5));
+             //@include bg-color(lighten(map-get($colors,Grayish Violet),25),nth($fallback-colors,5));
              #first-text{
                  text-align:center;
                  @media screen and(min-width:767px){
@@ -227,14 +244,14 @@ h1 {
         
         &__secondChild{
              
-            @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
+            @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
             #url-form{
                background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
                min-height: 8em;
             }
             .added-url{
                 @include bg-color(map-get($colors,White),nth($fallback-colors,8));
-                margin-bottom: 0.1em;
+                margin: 1em 2em;
             }
             #left{
                 height:4em;
@@ -278,7 +295,7 @@ h1 {
                    @include bg-color(map-get($colors,White),nth($fallback-colors,8));
                    margin:3em;
               }
-              @include bg-color(map-get($colors,Gray),nth($fallback-colors,4));
+              @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
              .svg-icon{
                  width: 80px;
                  height:80px;

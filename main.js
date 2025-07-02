@@ -87,11 +87,11 @@ async function returnShort(){
 	//if navigator.writetext is support, update the button classlist so the buttonw iwll be shown with the shown class.
 	if (navigator.clipboard.writeText) {
         //navigator.clipboard.writeText() is supported, add the 'Copy' button.
-        includedClasses='js-copy-btn btn shown';
+        includedClasses='js-copy-btn btn shown green-rounded-button';
     }
 	data.urls_container.innerHTML += `
 			<li class='display-flex justify-content-center align-items-center added-url'>
-				<p data-copy='${inputUrl.old_url} : ${inputUrl.shorten_url}'  class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
+				<p data-copy='${inputUrl.old_url} : ${inputUrl.shorten_url}'  class='me-2-md me-1'>${inputUrl.old_url} :<span class='green-font'> ${inputUrl.shorten_url}</span></p>
 				<button class='${includedClasses}' type='button'>Copy</button>
 			</li>
 	`;
@@ -134,6 +134,8 @@ const clipBoardWrite = async (btnData) => {
 			console.error(error);
 		}
     }
+	const text = await clipBoardRead();
+	console.log('text from clipboard shortenend urls: ',text);
 }
 const clipBoardRead= async()=>{
     if (!navigator.clipboard) {
@@ -145,7 +147,7 @@ const clipBoardRead= async()=>{
 	if (navigator.clipboard.readText && permissionStatus) {
         try {
 			const text = await navigator.clipboard.readText();
-			console.log(text);
+			return text;
 		} catch (error) {
 			console.error(error);
 		}
@@ -159,7 +161,12 @@ const addListener =()=>{
 	//add listeners to all the shortend link buttons , all the 'copy' buttons.
 	data.clearBtn.addEventListener('click',clearLocalStorage);
 	[...document.querySelectorAll('.js-copy-btn')].forEach(btn=>btn.addEventListener('click',(e)=>{
-		btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
+		//btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
+		btn.textContent='Copied!';
+		if($(btn).hasClass('green-rounded-button')){
+            $(btn).removeClass('green-rounded-button');
+			$(btn).addClass('dark-blue-rounded-button');
+		}
 		let sibling = btn.previousElementSibling;
 		const btnData = $(sibling).attr('data-copy');
 		btn.style.backgroundColor='lighten(hsl(255, 11%, 22%),10)';
@@ -172,14 +179,14 @@ const updateUrl_container=()=>{
 	//if navigator.writetext is support, update the button classlist so the buttonw iwll be shown with the shown class.
 	if (navigator.clipboard.writeText) {
         //navigator.clipboard.writeText() is supported, add the 'Copy' button.
-        includedClasses='js-copy-btn btn shown';
+        includedClasses='js-copy-btn btn shown green-rounded-button';
     }
     if(data.urlData){
 		data.urlData.forEach(
 			({old_url,shorten_url}) => {
 					(data.urls_container.innerHTML += `
 						  <li class='display-flex justify-content-center align-items-center added-url'>
-						     <p data-copy='${old_url} : ${shorten_url}' class='me-2-md me-1'>${old_url} : ${shorten_url}</p>
+						     <p data-copy='${old_url} : ${shorten_url}' class='me-2-md me-1'>${old_url} : <span class='green-font'>${shorten_url}</span></p>
 							 <button class='${includedClasses}' type='button'>Copy</button>
 					      </li>
 				   `)
