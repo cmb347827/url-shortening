@@ -164,7 +164,7 @@ h1 {
     @include font-color(map-get($colors,White),nth($fallback-colors,8));
     @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
     &:hover{
-         @include bg-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+         @include bg-color(lighten(map-get($colors,Cyan),11),nth($fallback-colors,1));
     }
 }
 .dark-blue-rounded-button{
@@ -290,7 +290,10 @@ h1 {
             }
         }
         &__thirdChild{
-              padding-top: 2em;
+            
+              article{
+                 background: linear-gradient(cyan, cyan) no-repeat center/5px 90%;
+              }
               div.white{
                    @include bg-color(map-get($colors,White),nth($fallback-colors,8));
                    margin:3em;
@@ -301,15 +304,14 @@ h1 {
                  height:80px;
                  border-radius:50%;
                  @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,6));
-                 transform: translate(350%,-50%);
+                 margin: 0 auto;
+                 position:relative;
+                 top: -2em;
              }
             
             @media screen and(min-width:768px){
-                  #green-line{
-                      @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
-                      height: 20px;
-                      width: 30em;
-
+                  article{
+                     background: linear-gradient(cyan, cyan) no-repeat 20% center/90% 5px;
                   }
                   .down-1em{
                      top: 1em;
@@ -317,14 +319,11 @@ h1 {
                   .down-2em{
                      top: 2em;
                   }
-                  .down-10em{
-                     top: 10em;
-                  }
                   div.white{
                      margin:1em;
                   }
                   .svg-icon{
-                      transform: translate(0,-50%);
+                     margin: 0;
                   }
             }
         }
@@ -344,8 +343,14 @@ h1 {
              }
              padding: 1em;
              @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
-             li ,a{
+             h5,a{
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
+              &:hover:not(h5){
+                 @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+              }
+             }
+             svg:hover path{
+                  fill:cyan;
              }
              @media screen and(min-width: 768px){
                  padding: 2em;
