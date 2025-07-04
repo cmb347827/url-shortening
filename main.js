@@ -90,7 +90,7 @@ async function returnShort(){
         includedClasses='js-copy-btn btn shown green-rounded-button';
     }
 	data.urls_container.innerHTML += `
-			<li class='display-flex justify-content-center align-items-center added-url'>
+			<li class='display-flex justify-content-center align-items-center added-url colRow'>
 				<p data-copy='${inputUrl.old_url} : ${inputUrl.shorten_url}'  class='me-2-md me-1'>${inputUrl.old_url} :<span class='green-font'> ${inputUrl.shorten_url}</span></p>
 				<button class='${includedClasses}' type='button'>Copy</button>
 			</li>
@@ -185,7 +185,7 @@ const updateUrl_container=()=>{
 		data.urlData.forEach(
 			({old_url,shorten_url}) => {
 					(data.urls_container.innerHTML += `
-						  <li class='display-flex justify-content-center align-items-center added-url'>
+						  <li class='display-flex justify-content-center align-items-center added-url colRow'>
 						     <p data-copy='${old_url} : ${shorten_url}' class='me-2-md me-1'>${old_url} : <span class='green-font'>${shorten_url}</span></p>
 							 <button class='${includedClasses}' type='button'>Copy</button>
 					      </li>
@@ -205,8 +205,8 @@ $(window).on('load',function(){
 
 	$("#menubutton").on("click", function(){
         //menu is collapsed/closed, toggle open/close icon.
-		$('#open').toggleClass('hidden');
-		$('#close').toggleClass('hidden');
+		//$('#open').toggleClass('hidden');
+		//$('#close').toggleClass('hidden');
 		$('#nav').toggleClass('custom-nav');
 		document.querySelector('#navbarCollapse').classList.toggle("hidden");
 		navbar.toggleAttribute('aria-expanded');

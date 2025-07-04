@@ -184,17 +184,29 @@ body {
 
 .custom-nav {
   z-index: 99;
-  height: 50vh;
-  width: 100vw;
+  height: 65vh;
+  width: 95vw;
   opacity: 1;
   position: absolute;
-  top: 0;
-  left: 0;
-  background-color: DarkSlateBlue;
-  background-color: #35323e; }
-  .custom-nav a {
+  margin: 0 1em;
+  background-color: MidnightBlue;
+  background-color: #56477b; }
+  .custom-nav #nav-top {
+    background-color: Snow;
+    background-color: white; }
+  .custom-nav a, .custom-nav #login-mobile {
     color: Snow;
     color: white; }
+  .custom-nav #login-mobile {
+    background-color: MidnightBlue;
+    background-color: #56477b;
+    border: none;
+    margin-bottom: 2em; }
+  .custom-nav #signup-mobile {
+    width: 25em; }
+  .custom-nav .full-width-hr {
+    margin: 15px 5px;
+    width: 80vw; }
 
 .order-1 .order-zero {
   order: 0; }
@@ -264,11 +276,14 @@ h1 {
 .container nav ul {
   list-style-type: none;
   width: 100%; }
+.container header nav {
+  display: block; }
 .container header a {
-  text-decoration: none;
+  text-decoration: none; }
+.container header div#desktop-nav a {
   color: LightGray;
   color: #c4c4c4; }
-  .container header a:hover {
+  .container header div#desktop-nav a:hover {
     color: black; }
 .container header #menubutton {
   margin: 15px 20px; }
@@ -285,6 +300,7 @@ h1 {
 .container section {
   padding-bottom: 1em; }
 .container__firstChild {
+  margin-top: 1em;
   margin-bottom: 2em; }
   .container__firstChild #first-text {
     text-align: center; }
