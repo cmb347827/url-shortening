@@ -224,7 +224,7 @@ h1 {
              padding-bottom: 1em;
         }
         &__firstChild{
-             //@include bg-color(lighten(map-get($colors,Grayish Violet),25),nth($fallback-colors,5));
+             margin-bottom:2em;
              #first-text{
                  text-align:center;
                  @media screen and(min-width:767px){
@@ -238,16 +238,20 @@ h1 {
                     max-height:75%;
                 }
             }
-            
+            @media screen and(min-width:768px){
+                margin-bottom:6em;
+            }
             
         }
         
         &__secondChild{
-             
+            padding: 1em;
             @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
             #url-form{
                background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
-               min-height: 8em;
+               min-height:8em;
+               position:relative;
+               bottom: 2em;
             }
             .added-url{
                 @include bg-color(map-get($colors,White),nth($fallback-colors,8));
@@ -279,6 +283,7 @@ h1 {
             @media screen and(min-width:768px){
                   #url-form{
                      background:map-get($colors,Dark Violet) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
+                     bottom:4em;
                   }
             }
             @media screen and(max-width:1200px){
@@ -290,7 +295,7 @@ h1 {
             }
         }
         &__thirdChild{
-            
+              padding:1em;
               article{
                  background: linear-gradient(cyan, cyan) no-repeat center/5px 90%;
               }
@@ -343,6 +348,9 @@ h1 {
              }
              padding: 1em;
              @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
+             a{
+               text-decoration: none;
+             }
              h5,a{
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
               &:hover:not(h5){
