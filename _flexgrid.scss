@@ -88,6 +88,12 @@
 .flex-basis-100{
     flex-basis:100%;
 }
+.flex-grow-2{
+     flex-grow:2;
+}
+.flex-shrink-2{
+     flex-shrink:2;
+}
 .me-2-md{
     @media screen and(min-width:768px){
         margin-right:2em;
@@ -120,9 +126,16 @@
           flex-direction:row;
     }
 }
+
 .rowCol{
     flex-direction:row;
     @media screen and(min-width:768px){
+         flex-direction: column;
+    }
+}
+.rowCol-1{
+    flex-direction:row;
+    @media screen and(max-width:375px){
          flex-direction: column;
     }
 }
