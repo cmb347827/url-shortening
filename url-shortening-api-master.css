@@ -108,7 +108,7 @@
 
 .colRow {
   flex-direction: column; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 775px) {
     .colRow {
       flex-direction: row; } }
 
@@ -130,7 +130,7 @@
     .rowCol-1 {
       flex-direction: column; } }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 774px) {
   #desktop-nav {
     display: none; }
 
@@ -146,7 +146,7 @@
 #close {
   filter: brightness(0) saturate(100%) invert(92%) sepia(3%) saturate(3990%) hue-rotate(191deg) brightness(106%) contrast(105%); }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 775px) {
   #nav {
     display: none; }
 
@@ -194,7 +194,7 @@ body {
 .text-center {
   text-align: center; }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 775px) {
   .text-md-start {
     text-align: start; } }
 
@@ -208,7 +208,7 @@ body {
 .custom-nav {
   z-index: 99;
   height: 65vh;
-  width: 95vw;
+  width: 75vw;
   opacity: 1;
   position: absolute;
   margin: 0 0.5em;
@@ -232,7 +232,7 @@ body {
   order: 0; }
 .order-1 .order-one {
   order: 1; }
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 775px) {
   .order-1 .order-md-zero {
     order: 0; }
   .order-1 .order-md-one {
@@ -401,7 +401,7 @@ h1 {
     margin: 0 auto;
     position: relative;
     top: -2em; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 775px) {
     .container__thirdChild article {
       background: linear-gradient(cyan, cyan) no-repeat 20% center/90% 5px; }
     .container__thirdChild .down-1em {
@@ -420,11 +420,11 @@ h1 {
     .container__fourthChild {
       background: #3b3054 url("./images/bg-boost-desktop.svg") top center/100% 100%; } }
 .container__fifthChild {
-  padding-top: 5em;
+  padding: 0.5em 1em;
   background-color: Indigo;
   background-color: #232127; }
-  @media screen and (max-width: 767px) {
-    .container__fifthChild #logo-svg {
+  @media screen and (max-width: 775px) {
+    .container__fifthChild #logo-svg, .container__fifthChild #social {
       margin: 0 auto;
       position: relative;
       left: 1em; } }
