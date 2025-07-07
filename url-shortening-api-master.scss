@@ -70,10 +70,10 @@ body {
   opacity:1;
 }
 .red-font{
-   @include font-color(map-get($colors,Red),nth($fallback-colors,3));
+   @include font-color(get($colors,Red),nth($fallback-colors,3));
 }
 .green-font{
-   @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+   @include font-color(lighten(get($colors,Cyan),5),nth($fallback-colors,1));
 }
 .text-center{
    text-align:center;
@@ -94,13 +94,13 @@ body {
 .custom-nav{
   
     #nav-top{
-       @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+       @include bg-color(get($colors,White),nth($fallback-colors,8));
     }
     a,#login-mobile{
-      @include font-color(map-get($colors,White),nth($fallback-colors,8));
+      @include font-color(get($colors,White),nth($fallback-colors,8));
     }
     #login-mobile{
-       @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
+       @include bg-color(lighten(get($colors, Dark Violet),12),nth($fallback-colors,2));
        border:none;
        width: 30em;
        margin-bottom:2em;
@@ -117,7 +117,7 @@ body {
     .order-one{
         order:1;
     }
-    @media screen and(min-width:820px){                                //775
+    @media screen and (min-width:820px){                                
         .order-md-zero{
            order:0;
         }
@@ -159,23 +159,23 @@ h1 {
   font-size: 2em;
 }
 .no-btn{
-     @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+     @include bg-color(get($colors,White),nth($fallback-colors,8));
      border:none;
 }
 .green-rounded-button{
     border-radius: 14px;
     border:none;
-    @include font-color(map-get($colors,White),nth($fallback-colors,8));
-    @include bg-color(map-get($colors,Cyan),nth($fallback-colors,1));
+    @include font-color(get($colors,White),nth($fallback-colors,8));
+    @include bg-color(get($colors,Cyan),nth($fallback-colors,1));
     &:hover{
-         @include bg-color(lighten(map-get($colors,Cyan),11),nth($fallback-colors,1));
+         @include bg-color(lighten(get($colors,Cyan),11),nth($fallback-colors,1));
     }
 }
 .dark-blue-rounded-button{
     border-radius: 14px;
     border:none;
-    @include font-color(map-get($colors,White),nth($fallback-colors,8));
-    @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,6));
+    @include font-color(get($colors,White),nth($fallback-colors,8));
+    @include bg-color(get($colors,Very Dark Blue),nth($fallback-colors,6));
 }
 .pos-relative{
    position:relative;
@@ -183,7 +183,7 @@ h1 {
 .touch-target{
     font-size: 24px;
     margin-bottom: 8px;
-    @media screen and(min-width: 768px){
+    @media screen and (min-width: 768px){
         //also for desktop ,just to be sure.
         font-size: 1.1em;
         margin-bottom: 8px;
@@ -202,7 +202,7 @@ h1 {
               text-decoration: none;
             }
             div#desktop-nav a{
-              @include font-color(lighten(map-get($colors,Gray),2),nth($fallback-colors,4));
+              @include font-color(lighten(get($colors,Gray),2),nth($fallback-colors,4));
               &:hover{
                  color:black;
               }
@@ -217,7 +217,7 @@ h1 {
                   opacity:1;
                   position:absolute;
                   width: 100%;
-                  @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
+                  @include bg-color(lighten(get($colors, Dark Violet),12),nth($fallback-colors,2));
                 .full-width-hr{
                     margin: 20px;
                     border: 0;
@@ -232,7 +232,7 @@ h1 {
                   a{
                     font-size: 2rem;
                     font-weight:$font_weight-medium;
-                    @media screen and(min-width:768px){
+                    @media screen and (min-width:768px){
                       font-size: 1em;
                     }
                   }
@@ -248,31 +248,28 @@ h1 {
              margin-bottom:2em;
              #first-text{
                  text-align:center;
-                 @media screen and(min-width:837px){                  //767
+                 @media screen and (min-width:837px){                  //767
                       text-align: start;
                  }
              }
-            @media screen and(max-width: 837px){                       //767
+            @media screen and (max-width: 837px){                       //767
                 //in mobile view the hero svg image ,should have max-width /max-height. I did not use viewbox or svg-100
                 #hero{
                     max-width: 75%;
                     max-height:75%;
                 }
             }
-            @media screen and(min-width:837px){
+            @media screen and (min-width:837px){
                 margin-bottom:6em;
             }
             
         }
-        .border{
-          border: 2px solid red;
-        }
 
         &__secondChild{
             padding: 1em;
-            @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
+            @include bg-color(lighten(get($colors,Grayish Violet),31),nth($fallback-colors,5));
             #url-form{
-               background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
+               background:get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
                min-height:8em;
                position:relative;
                bottom: 2em;
@@ -298,7 +295,7 @@ h1 {
                 }
             }
             .added-url{
-                @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+                @include bg-color(get($colors,White),nth($fallback-colors,8));
                 margin: 1em 2em;
             }
            
@@ -311,13 +308,13 @@ h1 {
             #urls_container{
                 margin-top: 2em;
             }
-            @media screen and(min-width:837px){             //768
+            @media screen and (min-width:837px){             //768
                   #url-form{
-                     background:map-get($colors,Dark Violet) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
+                     background:get($colors,Dark Violet) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
                      bottom:4em;
                   }
             }
-            @media screen and(max-width:1200px){
+            @media screen and (max-width:1200px){
                   #url{
                     position:relative;
                     top: 1em;
@@ -332,21 +329,21 @@ h1 {
                  background: linear-gradient(cyan, cyan) no-repeat center/5px 90%;
               }
               div.white{
-                   @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+                   @include bg-color(get($colors,White),nth($fallback-colors,8));
                    margin:3em;
               }
-              @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
+              @include bg-color(lighten(get($colors,Grayish Violet),31),nth($fallback-colors,5));
              .svg-icon{
                  width: 80px;
                  height:80px;
                  border-radius:50%;
-                 @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,6));
+                 @include bg-color(get($colors,Very Dark Blue),nth($fallback-colors,6));
                  margin: 0 auto;
                  position:relative;
                  top: -2em;
              }
             
-            @media screen and(min-width:837px){                      //775
+            @media screen and (min-width:837px){                      //775
                   article{
                      //the horizontal line in desktop
                      background: linear-gradient(cyan, cyan) no-repeat 20% center/90% 5px;
@@ -368,8 +365,8 @@ h1 {
         &__fourthChild{
               padding: 2em 0;
               background:hsl(257, 27%, 26%) url('./images/bg-boost-mobile.svg') top center/100% 100%;
-              @include font-color(map-get($colors,White),nth($fallback-colors,8));
-              @media screen and(min-width:820px){                                                                   //768
+              @include font-color(get($colors,White),nth($fallback-colors,8));
+              @media screen and (min-width:820px){                                                                   
                   background:hsl(257, 27%, 26%) url('./images/bg-boost-desktop.svg') top center/100% 100%;
               }
         }
@@ -377,7 +374,7 @@ h1 {
               padding-top: 2em;
             
              #logo-svg{
-                @media screen and(max-width:837px){                          //775
+                @media screen and (max-width:837px){                          //775
                     margin:0 auto;
                     position:relative;
                     left: 1em;
@@ -390,14 +387,14 @@ h1 {
                 padding-bottom:1em;
                 margin:0;
              }
-             @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
+             @include bg-color(get($colors,Very Dark Violet),nth($fallback-colors,7));
              a{
                text-decoration: none;
              }
              h5,a{
-              @include font-color(map-get($colors,White),nth($fallback-colors,8));
+              @include font-color(get($colors,White),nth($fallback-colors,8));
               &:hover:not(h5), &:hover:not(#logo-svg){
-                 @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+                 @include font-color(lighten(get($colors,Cyan),5),nth($fallback-colors,1));
               }
              }
              
@@ -405,7 +402,7 @@ h1 {
                   fill:cyan;
              }
              
-             @media screen and(min-width: 837px){            //768
+             @media screen and (min-width: 837px){            
                  ul{
                    padding:0;
                    margin:0;

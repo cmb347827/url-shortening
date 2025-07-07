@@ -33,22 +33,22 @@
     justify-content:space-around;
 }
 .justify-content-md-space-between{
-    @media screen and(min-width:768px){
+    @media screen and (min-width:768px){
         justify-content: space-between;
     }
 }
 .justify-content-md-center{
-    @media screen and(min-width:768px){
+    @media screen and (min-width:768px){
         justify-content: center;
     }
 }
 .justify-content-md-space-around{
-    @media screen and(min-width:768px){
+    @media screen and (min-width:768px){
         justify-content: space-around;
     }
 }
 .justify-content-md-start{
-    @media screen and(min-width:768px){
+    @media screen and (min-width:768px){
         justify-content: flex-start;
     }
 }
@@ -95,12 +95,12 @@
      flex-shrink:2;
 }
 .me-2-md{
-    @media screen and(min-width:768px){
+    @media screen and (min-width:768px){
         margin-right:2em;
     }
 }
 .me-1-md{
-    @media screen and(min-width:768px){
+    @media screen and (min-width:768px){
         margin-right:1em;
     }
 }
@@ -116,26 +116,26 @@
 
 .colRow{
     flex-direction:column;
-    @media screen and(min-width:837px){                    //775
+    @media screen and (min-width:837px){                    
           flex-direction:row;
     }
 }
 .colRow-l{
     flex-direction:column;
-    @media screen and(min-width:1200px){
+    @media screen and (min-width:1200px){
           flex-direction:row;
     }
 }
 
 .rowCol{
     flex-direction:row;
-    @media screen and(min-width:837px){                   //768
+    @media screen and (min-width:837px){                   
          flex-direction: column;
     }
 }
 .rowCol-1{
     flex-direction:row;
-    @media screen and(max-width:375px){
+    @media screen and (max-width:375px){
          flex-direction: column;
     }
 }
