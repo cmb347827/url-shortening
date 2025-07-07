@@ -1,4 +1,3 @@
-
 @import '_globals.scss';
 @import '_flexgrid.scss';
 @import 'hamburgermenu.scss';
@@ -94,10 +93,10 @@ body {
 .custom-nav{
     z-index:99;
     height:65vh;
-    width: 75vw;
+    width: 100%;
     opacity:1;
-    position:absolute;
-    margin: 0 0.5em;
+    position:relative;
+  
     @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
     #nav-top{
        @include bg-color(map-get($colors,White),nth($fallback-colors,8));
@@ -122,7 +121,7 @@ body {
     .order-one{
         order:1;
     }
-    @media screen and(min-width:775px){
+    @media screen and(min-width:820px){                                //775
         .order-md-zero{
            order:0;
         }
@@ -187,7 +186,7 @@ h1 {
 }
 .touch-target{
     font-size: 24px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     @media screen and(min-width: 768px){
         //also for desktop ,just to be sure.
         font-size: 1.1em;
@@ -199,13 +198,9 @@ h1 {
      
       nav ul {
         list-style-type:none;
-        //width: 100%;
       } 
       
       header{
-            nav{
-                //display:block;
-            }
             a{
               text-decoration: none;
             }
@@ -214,9 +209,6 @@ h1 {
               &:hover{
                  color:black;
               }
-            }
-            #menubutton{
-               margin: 15px 20px;                                              
             }
             #navbarCollapse{
                 hr{
@@ -244,18 +236,18 @@ h1 {
              margin-bottom:2em;
              #first-text{
                  text-align:center;
-                 @media screen and(min-width:767px){
+                 @media screen and(min-width:837px){                  //767
                       text-align: start;
                  }
              }
-            @media screen and(max-width: 767px){
+            @media screen and(max-width: 837px){                       //767
                 //in mobile view the hero svg image ,should have max-width /max-height. I did not use viewbox or svg-100
                 #hero{
                     max-width: 75%;
                     max-height:75%;
                 }
             }
-            @media screen and(min-width:768px){
+            @media screen and(min-width:837px){
                 margin-bottom:6em;
             }
             
@@ -307,7 +299,7 @@ h1 {
             #urls_container{
                 margin-top: 2em;
             }
-            @media screen and(min-width:768px){
+            @media screen and(min-width:837px){             //768
                   #url-form{
                      background:map-get($colors,Dark Violet) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
                      bottom:4em;
@@ -342,7 +334,7 @@ h1 {
                  top: -2em;
              }
             
-            @media screen and(min-width:775px){
+            @media screen and(min-width:837px){                      //775
                   article{
                      //the horizontal line in desktop
                      background: linear-gradient(cyan, cyan) no-repeat 20% center/90% 5px;
@@ -364,14 +356,14 @@ h1 {
         &__fourthChild{
               background:hsl(257, 27%, 26%) url('./images/bg-boost-mobile.svg') top center/100% 100%;
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
-              @media screen and(min-width:768px){
+              @media screen and(min-width:820px){                                                                   //768
                   background:hsl(257, 27%, 26%) url('./images/bg-boost-desktop.svg') top center/100% 100%;
               }
         }
         &__fifthChild{
               padding: 0.5em 1em;
              #logo-svg,#social{
-                @media screen and(max-width:775px){
+                @media screen and(max-width:837px){                          //775
                     margin:0 auto;
                     position:relative;
                     left: 1em;
@@ -399,7 +391,7 @@ h1 {
                   fill:cyan;
              }
              
-             @media screen and(min-width: 768px){
+             @media screen and(min-width: 837px){            //768
                  ul{
                    padding:0;
                    margin:0;
@@ -413,12 +405,12 @@ h1 {
       
       #about-me{
         
-        @media screen and(min-width:768px){
+        @media screen and(min-width:837px){
           position:relative;
           top: 10em;
         }
       }
-      @media screen and(min-width:768px){
+      @media screen and(min-width:837px){
         @include padding(4em);
         font-size:1.2em;
       }

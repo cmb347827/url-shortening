@@ -116,7 +116,7 @@
 
 .colRow{
     flex-direction:column;
-    @media screen and(min-width:775px){
+    @media screen and(min-width:837px){                    //775
           flex-direction:row;
     }
 }
@@ -129,7 +129,7 @@
 
 .rowCol{
     flex-direction:row;
-    @media screen and(min-width:768px){
+    @media screen and(min-width:820px){                   //768
          flex-direction: column;
     }
 }
