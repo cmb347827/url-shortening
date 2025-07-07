@@ -48,11 +48,12 @@ $fallback-colors: (
 
 html,
 body {
+     
      @include bg-color(map-get($colors,White),nth($fallback-colors,8));
-  font: {
-     size: $font_size-18;
-     weight: $font_weight-normal;
-	   family: "Rubik", sans-serif;
+     font: {
+        size: $font_size-18;
+        weight: $font_weight-normal;
+	      family: "Rubik", sans-serif;
   }
 }
 .hidden{
@@ -78,7 +79,7 @@ body {
    text-align:center;
 }
 .text-md-start{
-   @media screen and(min-width:775px){
+   @media screen and(min-width:837px){
        text-align:start;
    }
 }
@@ -91,13 +92,7 @@ body {
 }
 
 .custom-nav{
-    z-index:99;
-    height:65vh;
-    width: 100%;
-    opacity:1;
-    position:relative;
   
-    @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
     #nav-top{
        @include bg-color(map-get($colors,White),nth($fallback-colors,8));
     }
@@ -107,6 +102,7 @@ body {
     #login-mobile{
        @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
        border:none;
+       width: 30em;
        margin-bottom:2em;
     }
     #signup-mobile{
@@ -201,6 +197,7 @@ h1 {
       } 
       
       header{
+            position:relative;
             a{
               text-decoration: none;
             }
@@ -210,7 +207,22 @@ h1 {
                  color:black;
               }
             }
+            .outer-width{
+               width: 100%;
+            }
+
             #navbarCollapse{
+                 z-index:99;
+                  height:65vh;
+                  opacity:1;
+                  position:absolute;
+                  width: 100%;
+                  @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
+                .full-width-hr{
+                    margin: 20px;
+                    border: 0;
+                    border-top: 1px solid white;
+                }
                 hr{
                    color: white;
                 }
@@ -354,6 +366,7 @@ h1 {
             }
         }
         &__fourthChild{
+              padding: 2em 0;
               background:hsl(257, 27%, 26%) url('./images/bg-boost-mobile.svg') top center/100% 100%;
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
               @media screen and(min-width:820px){                                                                   //768
@@ -361,8 +374,9 @@ h1 {
               }
         }
         &__fifthChild{
-              padding: 0.5em 1em;
-             #logo-svg,#social{
+              padding-top: 2em;
+            
+             #logo-svg{
                 @media screen and(max-width:837px){                          //775
                     margin:0 auto;
                     position:relative;
@@ -399,19 +413,15 @@ h1 {
              }
         }
     
-        
-             
-          
       
-      #about-me{
-        
-        @media screen and(min-width:837px){
-          position:relative;
-          top: 10em;
-        }
-      }
-      @media screen and(min-width:837px){
-        @include padding(4em);
-        font-size:1.2em;
-      }
+}
+
+
+#about-me-outer{
+    height: 600px;
+    #about-me{
+        position:relative;
+        top: 100px;
+    }
+  
 }
