@@ -1,7 +1,7 @@
 @import '_globals.scss';
 @import '_flexgrid.scss';
 @import 'hamburgermenu.scss';
-@use "sass:map";
+
 
 $colors: (
     Cyan: hsl(180, 66%, 49%),
@@ -50,7 +50,7 @@ $fallback-colors: (
 html,
 body {
      
-     @include bg-color(map-get($colors,White),nth($fallback-colors,8));
+     //@include bg-color(($colors(0),$fallback-colors(0)));
      font: {
         size: $font_size-18;
         weight: $font_weight-normal;
@@ -72,6 +72,8 @@ body {
 }
 .red-font{
    @include font-color(map-get($colors,Red),nth($fallback-colors,3));
+   font-size: 8px;
+   font-weight: normal;
 }
 .green-font{
    @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
@@ -190,6 +192,10 @@ h1 {
         margin-bottom: 8px;
     }
 }
+ ::placeholder {
+    color: var(--c, black);
+}
+
 
 .container{
      
@@ -303,9 +309,9 @@ h1 {
             ul {
               list-style-type:none;
             }
-            ::placeholder {
+            /*::placeholder {
                 color: var(--c, black);
-            }
+            }*/
             #urls_container{
                 margin-top: 2em;
             }

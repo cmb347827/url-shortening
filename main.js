@@ -42,7 +42,7 @@ async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
 	//const url = '/.netlify/functions/serverlessFetch';
 	const url = '/.netlify/functions/octo';
-	//data.input.value = data.input.value.toLowerCase();
+	data.input.value = data.input.value.toLowerCase();
 	const serverUrl ='https://cleanuri.com/api/v1/shorten';
 	
 	return await fetch(url, {
@@ -62,7 +62,7 @@ async function getFetchPost(){
 		return response.json();
     })
 	.then(content=>{
-		     console.log('content',content.result_url);
+		     //console.log('content',content.result_url);
 			 return content.result_url;
 	})
 	.catch(error => {
@@ -73,22 +73,26 @@ async function getFetchPost(){
 
 async function returnShort(){
 	//data.encodedUrl = urlEncoded();  //? + octo statustext?  
+	//netlify serverless function is called in getFetchPost() to fetch the shortened url
     let shortened =  await getFetchPost();
 	
+	//create new url object , with both the old url and new shortened url
 	const inputUrl={
 		old_url : data.input.value,
 		shorten_url: shortened,
 	}
 	data.urlData.push(inputUrl);
+	//this way the urls will be visible still with a browser refresh
 	saveToStorage('url',data.urlData);
 
-	//button classlist variable
+	//button classlist variable , assume first that clipboard is not supported, so don't show the 'copy' button.
 	let includedClasses='not-shown';
 	//if navigator.writetext is support, update the button classlist so the buttonw iwll be shown with the shown class.
 	if (navigator.clipboard.writeText) {
         //navigator.clipboard.writeText() is supported, add the 'Copy' button.
         includedClasses='js-copy-btn btn shown green-rounded-button';
     }
+	//updates the visible list of urls (old + new shortened beneath the url form)
 	data.urls_container.innerHTML += `
 			<li class='display-flex justify-content-center align-items-center added-url colRow'>
 				<p data-copy='${inputUrl.old_url} : ${inputUrl.shorten_url}'  class='me-2-md me-1'>${inputUrl.old_url} :<span class='green-font'> ${inputUrl.shorten_url}</span></p>
@@ -100,22 +104,24 @@ async function returnShort(){
 
 const validateURL=(event)=>{
 	event.preventDefault();
+
 	if(data.input.value.length > 0){
 		data.error.innerHTML='';
 		data.input.style.border='none';
-        const valid_old = data.urlRegTwo.test(data.input.value.trim());
-		//const valid_old = validator.isURL(data.input.value.trim());
+        //const valid_old = data.urlRegTwo.test(data.input.value.trim());
+		//validate the url with validator.js 
+		const valid_old = validator.isURL(data.input.value.trim());
 		if(valid_old){
-			console.log('data.input.value',data.input.value);
+			// the url is valid, return the shortened url
            returnShort();
 		}else{
 		   data.input.style.border='2px solid red';
-		   let place= data.input.getAttribute('placeholder');
-		   place.style.setProperty("--c", "red");
-           data.error.innerHTML = `<p class='red-font'>Enter a correct format url : https://domainname/page, https://domainname.page_1 etc</p>`;
+		
+		   document.querySelector('input[type=text]').style.setProperty("--c", "red");
+           data.error.innerHTML = `<p class='red-font'>Enter a correct format url </p>`;
 		}
 	} else{
-		//add an error message beneath input field
+		//The inputfield is empty , add an error message beneath input field
 		data.input.style.border='2px solid red';
 		document.querySelector('input[type=text]').style.setProperty("--c", "red");
         data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
@@ -162,11 +168,13 @@ const addListener =()=>{
 	data.clearBtn.addEventListener('click',clearLocalStorage);
 	[...document.querySelectorAll('.js-copy-btn')].forEach(btn=>btn.addEventListener('click',(e)=>{
 		//btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';
+		//change the 'Copy' button's appearance to reflect that the content has been copied to the clipboard
 		btn.textContent='Copied!';
 		if($(btn).hasClass('green-rounded-button')){
             $(btn).removeClass('green-rounded-button');
 			$(btn).addClass('dark-blue-rounded-button');
 		}
+		//get the button's immediate sibling(<p> element)
 		let sibling = btn.previousElementSibling;
 		const btnData = $(sibling).attr('data-copy');
 		btn.style.backgroundColor='lighten(hsl(255, 11%, 22%),10)';
@@ -174,13 +182,14 @@ const addListener =()=>{
 	}));
 }
 const updateUrl_container=()=>{
-	//button classlist variable
+	//button classlist variable, assume first that clipboard is not supported, so don't show the 'copy' button.
 	let includedClasses='not-shown';
 	//if navigator.writetext is support, update the button classlist so the buttonw iwll be shown with the shown class.
 	if (navigator.clipboard.writeText) {
         //navigator.clipboard.writeText() is supported, add the 'Copy' button.
         includedClasses='js-copy-btn btn shown green-rounded-button';
     }
+	//show entire urlData array urls.
     if(data.urlData){
 		data.urlData.forEach(
 			({old_url,shorten_url}) => {
@@ -204,24 +213,9 @@ $(window).on('load',function(){
 	const navbar= document.getElementById('navbarCollapse');
 
 	$("#menubutton").on("click", function(){
-        //menu is collapsed/closed, toggle open/close icon.
-		//$('#open').toggleClass('hidden');
-		//$('#close').toggleClass('hidden');
 		$('#nav').toggleClass('custom-nav');
 		document.querySelector('#navbarCollapse').classList.toggle("hidden");
 		navbar.toggleAttribute('aria-expanded');
     });
-	
-	/*$(data.subscribe).on('click',function(){
-		dataFailed();
-	});*/
-    //User has pressed the keyboard ,and entered some data in the input field
-    //data.email.addEventListener('keyup',keyUp);
-    //data.email.addEventListener('keypress',keyPress);
-
-    /*data.subscribe.addEventListener('click',(e)=>{
-        e.preventDefault();
-		keyPress(e);
-	})*/
 	
 });

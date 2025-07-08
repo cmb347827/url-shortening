@@ -4,7 +4,7 @@
   "description": "![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)",
   "main": "main.js",
   "scripts": {
-    "build":""
+    "build": ""
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/cmb347827/url-shortening/issues"
   },
-  "homepage": "https://github.com/cmb347827/url-shortening#readme"
+  "homepage": "https://github.com/cmb347827/url-shortening#readme",
+  "dependencies": {
+    "validator": "^13.15.15"
+  }
 }
