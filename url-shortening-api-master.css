@@ -163,6 +163,8 @@
 
 html,
 body {
+  background-color: Snow;
+  background-color: white;
   font-size: 18px;
   font-weight: 400;
   font-family: "Rubik", sans-serif; }
@@ -180,9 +182,7 @@ body {
 
 .red-font {
   color: Red;
-  color: #f46262;
-  font-size: 8px;
-  font-weight: normal; }
+  color: #f46262; }
 
 .green-font {
   color: Cyan;
@@ -290,9 +290,6 @@ h1 {
       font-size: 1.1em;
       margin-bottom: 8px; } }
 
-::placeholder {
-  color: var(--c, black); }
-
 .container nav ul {
   list-style-type: none; }
 .container header {
@@ -365,9 +362,11 @@ h1 {
         width: 100%;
         max-width: calc(100% - 30px);
         margin: 0 15px; }
-      .container__secondChild #url-form #left #error-message {
+      .container__secondChild #url-form #left .error-message {
         font-weight: 600;
-        line-height: 1px; }
+        margin-top: 1em;
+        position: relative;
+        left: 1em; }
     .container__secondChild #url-form #right {
       height: 4em; }
   .container__secondChild .added-url {

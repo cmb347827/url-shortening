@@ -50,7 +50,7 @@ $fallback-colors: (
 html,
 body {
      
-     //@include bg-color(($colors(0),$fallback-colors(0)));
+     @include bg-color(map-get($colors,White),nth($fallback-colors,8));
      font: {
         size: $font_size-18;
         weight: $font_weight-normal;
@@ -72,8 +72,6 @@ body {
 }
 .red-font{
    @include font-color(map-get($colors,Red),nth($fallback-colors,3));
-   font-size: 8px;
-   font-weight: normal;
 }
 .green-font{
    @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
@@ -82,7 +80,7 @@ body {
    text-align:center;
 }
 .text-md-start{
-   @media screen and(min-width:837px){
+   @media screen and (min-width:837px){
        text-align:start;
    }
 }
@@ -192,9 +190,6 @@ h1 {
         margin-bottom: 8px;
     }
 }
- ::placeholder {
-    color: var(--c, black);
-}
 
 
 .container{
@@ -276,7 +271,7 @@ h1 {
             padding: 1em;
             @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
             #url-form{
-               background:map-get($colors,Dark Violet) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
+               background:hsl(257, 27%, 26%) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
                min-height:8em;
                position:relative;
                bottom: 2em;
@@ -292,9 +287,11 @@ h1 {
                         margin: 0 15px;
 
                     }
-                    #error-message{
+                    .error-message{
                         font-weight:$font_weight-semibold;
-                        line-height: 1px;
+                        margin-top: 1em;
+                        position:relative;
+                        left: 1em;
                     }
                 }
                 #right{
@@ -317,7 +314,7 @@ h1 {
             }
             @media screen and (min-width:52.31em){             
                   #url-form{
-                     background:map-get($colors,Dark Violet) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
+                     background:hsl(257, 27%, 26%) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
                      bottom:4em;
                   }
             }

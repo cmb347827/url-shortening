@@ -22,7 +22,7 @@ function clearLocalStorage(){
 //all data.
 const data={
 	input: document.getElementById('url'),
-	error: document.getElementById('error-message'),
+	error: document.querySelector('.error-message'),
 	url_btn:document.getElementById('get_url'),
 	urlRegTwo:/[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
@@ -41,8 +41,11 @@ const urlEncoded=()=>{
 async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
 	//const url = '/.netlify/functions/serverlessFetch';
+
+	//serverless netlify function octo in octo.mjs (see func folder)
 	const url = '/.netlify/functions/octo';
 	data.input.value = data.input.value.toLowerCase();
+	//needed for the error message below.
 	const serverUrl ='https://cleanuri.com/api/v1/shorten';
 	
 	return await fetch(url, {
@@ -74,7 +77,7 @@ async function getFetchPost(){
 async function returnShort(){
 	//data.encodedUrl = urlEncoded();  //? + octo statustext?  
 	//netlify serverless function is called in getFetchPost() to fetch the shortened url
-    let shortened =  await getFetchPost();
+    const shortened =  await getFetchPost();
 	
 	//create new url object , with both the old url and new shortened url
 	const inputUrl={
@@ -92,7 +95,7 @@ async function returnShort(){
         //navigator.clipboard.writeText() is supported, add the 'Copy' button.
         includedClasses='js-copy-btn btn shown green-rounded-button';
     }
-	//updates the visible list of urls (old + new shortened beneath the url form)
+	//add the new url object (old + new shortened at the end of the url form)
 	data.urls_container.innerHTML += `
 			<li class='display-flex justify-content-center align-items-center added-url colRow'>
 				<p data-copy='${inputUrl.old_url} : ${inputUrl.shorten_url}'  class='me-2-md me-1'>${inputUrl.old_url} :<span class='green-font'> ${inputUrl.shorten_url}</span></p>
@@ -115,15 +118,15 @@ const validateURL=(event)=>{
 			// the url is valid, return the shortened url
            returnShort();
 		}else{
+		   //the url is invalid format.
 		   data.input.style.border='2px solid red';
-		
-		   document.querySelector('input[type=text]').style.setProperty("--c", "red");
+		   $(data.input).addClass('red-font');
            data.error.innerHTML = `<p class='red-font'>Enter a correct format url </p>`;
 		}
 	} else{
 		//The inputfield is empty , add an error message beneath input field
 		data.input.style.border='2px solid red';
-		document.querySelector('input[type=text]').style.setProperty("--c", "red");
+		$(data.input).addClass('red-font');
         data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
 	}
 }
@@ -141,7 +144,7 @@ const clipBoardWrite = async (btnData) => {
 		}
     }
 	const text = await clipBoardRead();
-	console.log('text from clipboard shortenend urls: ',text);
+	//do something with read text in clipboard
 }
 const clipBoardRead= async()=>{
     if (!navigator.clipboard) {
@@ -176,6 +179,7 @@ const addListener =()=>{
 		}
 		//get the button's immediate sibling(<p> element)
 		let sibling = btn.previousElementSibling;
+		//get the input data value (data-copy) for the buttons' sibling <p> 
 		const btnData = $(sibling).attr('data-copy');
 		btn.style.backgroundColor='lighten(hsl(255, 11%, 22%),10)';
 		clipBoardWrite(btnData);
