@@ -315,11 +315,11 @@ h1 {
       color: white; }
     .container header .navbarCollapse li {
       padding-bottom: 2em; }
-      .container header .navbarCollapse li a {
+      .container header .navbarCollapse li a.nav-a {
         font-size: 2rem;
         font-weight: 500; }
         @media screen and (min-width: 52.31em) {
-          .container header .navbarCollapse li a {
+          .container header .navbarCollapse li a.nav-a {
             font-size: 1em; } }
 .container section {
   padding-bottom: 1em; }
@@ -351,7 +351,7 @@ h1 {
         width: 100%;
         max-width: calc(100% - 30px);
         margin: 0 15px; }
-      .container__secondChild .url-form .left .error-message {
+      .container__secondChild .url-form .left div.error-message {
         font-weight: 600;
         margin-top: 1em;
         position: relative;
@@ -418,7 +418,7 @@ h1 {
   background-color: Indigo;
   background-color: #232127; }
   @media screen and (max-width: 52.3em) {
-    .container__fifthChild #logo-svg {
+    .container__fifthChild .logo-svg {
       margin: 0 auto;
       position: relative;
       left: 1em; } }

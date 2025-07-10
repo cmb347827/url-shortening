@@ -1,5 +1,5 @@
-@import '_globals.scss';
-@import '_flexgrid.scss';
+@import 'globals.scss';
+@import 'flexgrid.scss';
 @import 'hamburgermenu.scss';
 
 
@@ -227,7 +227,7 @@ h1 {
                 li {
                    padding-bottom:2em;
                    
-                  a{
+                  a.nav-a{
                     font-size: 2rem;
                     font-weight:$font_weight-medium;
                     @media screen and (min-width:52.31em){
@@ -276,7 +276,7 @@ h1 {
                         margin: 0 15px;
 
                     }
-                    .error-message{
+                    div.error-message{
                         font-weight:$font_weight-semibold;
                         margin-top: 1em;
                         position:relative;
@@ -363,7 +363,7 @@ h1 {
         &__fifthChild{
               padding-top: 2em;
             
-             #logo-svg{
+             .logo-svg{
                 @media screen and (max-width:52.30em){                          
                     margin:0 auto;
                     position:relative;
