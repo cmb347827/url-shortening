@@ -58,15 +58,13 @@ Users should be able to:
   This did not work either as also CORS anywhere was no longer functional. See link 2. Somebody at Discord said I will need backend for this, and this includes Node and Netlify , for serverless functions. 
 - I encountered some errors while taking a netlify course (see links 3 and 4).
 - And then I got stuck in the last video ,of 3, of the course in which I could not get the , similar to the course code, with my code to work. I finally , after more then a week found why (see link 5). The netlify tutorial I followed was 4 years old, but I assumed that that was okay still. 
--  I wasted too much time, before I figured that with the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console.
-
--serverless functions with netlify
-- validator.js
+-  I wasted too much time, before I figured that with the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console. It would have helped with debugging. As I took forever to figure out how to use the getFetchPost() together with the netlify serverless function octo.mjs.  I had to ask at Discord (see link 6), and that helped.  I still had to figure out that I needed to change my getFetchPost() to an async function, as well as my returnShort() function, as it called getFetchPost().
+- I also decided to go with validator.js to validate the user url input, as my regular expression was probably not going to work 100%.
   
 
 ### Continued development
-
-- Daily tutorials and projects in HTML5, CSS3, Javascript, Bootstrap, Sass/SCSS. For now, in time I will go re-learn React ect.
+- I will have to learn much more about node.js and netlify.
+- Daily tutorials and projects in HTML5, CSS3, Javascript, Sass/SCSS. Anthing relevant, for now. In time I will go re-learn React etc if it seems relevant and useful.
 
 ### Useful resources
 
@@ -75,7 +73,7 @@ Users should be able to:
  [Reddit post git error](https://www.reddit.com/r/git/comments/krp2iy/couldnt_find_remote_ref_master/)
  [nodemon global install](https://stackoverflow.com/questions/40359590/nodemon-command-is-not-recognized-in-terminal-for-node-js-server)
  [update from require to import ](https://www.netlify.com/blog/how-to-make-a-fetch-request-using-node-fetch-v3/)
-
+ [url shortening api project,how to avoid CORS errors?](https://discord.com/channels/824970620529279006/1364845356009132033)
 
 
 

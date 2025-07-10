@@ -94,7 +94,7 @@ body {
 
 .custom-nav{
   
-    #nav-top{
+    .nav-top{
        @include bg-color(map-get($colors,White),nth($fallback-colors,8));
     }
     a,#login-mobile{
@@ -141,16 +141,16 @@ body {
 	width: 1px !important;
 	white-space: nowrap !important;            
 }
-#urls_container button,.btn{
+.urls_container button,.btn{
     //padding: 5px 15px;
     border-radius: 5px;
     height: 40px;
     width: 10em;
 }
-#urls_container .shown{
+.urls_container .shown{
     display:block;
 }
-#urls_container .not-shown{
+.urls_container .not-shown{
     display:none;
 }
 
@@ -203,7 +203,7 @@ h1 {
             a{
               text-decoration: none;
             }
-            div#desktop-nav a{
+            div.desktop-nav a{
               @include font-color(lighten(map-get($colors,Gray),2),nth($fallback-colors,4));
               &:hover{
                  color:black;
@@ -213,7 +213,7 @@ h1 {
                width: 100%;
             }
 
-            #navbarCollapse{
+            .navbarCollapse{
                  z-index:99;
                   height:65vh;
                   opacity:1;
@@ -248,19 +248,12 @@ h1 {
         &__firstChild{
              margin-top: 1em;
              margin-bottom:2em;
-             #first-text{
+             .text-center-start{
                  text-align:center;
                  @media screen and (min-width:52.31em){                  
                       text-align: start;
                  }
              }
-            @media screen and (max-width: 52.30em){                       
-                //in mobile view the hero svg image ,should have max-width /max-height. I did not use viewbox or svg-100
-                #hero{
-                    max-width: 75%;
-                    max-height:75%;
-                }
-            }
             @media screen and (min-width:52.31em){
                 margin-bottom:6em;
             }
@@ -270,13 +263,13 @@ h1 {
         &__secondChild{
             padding: 1em;
             @include bg-color(lighten(map-get($colors,Grayish Violet),31),nth($fallback-colors,5));
-            #url-form{
+            .url-form{
                background:hsl(257, 27%, 26%) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
                min-height:8em;
                position:relative;
                bottom: 2em;
                 
-               #left{
+               .left{
                     height:4em;
                     width:100%;
 
@@ -294,7 +287,7 @@ h1 {
                         left: 1em;
                     }
                 }
-                #right{
+                .right{
                       height: 4em;
                 }
             }
@@ -418,7 +411,7 @@ h1 {
 }
 
 
-#about-me-outer{
+.about-me-outer{
     height: 600px;
     #about-me{
         position:relative;

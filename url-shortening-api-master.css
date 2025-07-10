@@ -128,10 +128,10 @@
       flex-direction: column; } }
 
 @media screen and (max-width: 52.3em) {
-  #desktop-nav {
+  .desktop-nav {
     display: none; }
 
-  #nav #nav-top {
+  .nav .nav-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
@@ -144,16 +144,16 @@
   filter: brightness(0) saturate(100%) invert(92%) sepia(3%) saturate(3990%) hue-rotate(191deg) brightness(106%) contrast(105%); }
 
 @media screen and (min-width: 52.31em) {
-  #nav {
+  .nav {
     display: none; }
 
-  #desktop-nav {
+  .desktop-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
 
-  #desktop-ul {
+  .desktop-ul {
     display: flex;
     flex-direction: row; } }
 *,
@@ -202,7 +202,7 @@ body {
   width: 100%;
   height: 100%; }
 
-.custom-nav #nav-top {
+.custom-nav .nav-top {
   background-color: Snow;
   background-color: white; }
 .custom-nav a, .custom-nav #login-mobile {
@@ -240,15 +240,15 @@ body {
   width: 1px !important;
   white-space: nowrap !important; }
 
-#urls_container button, .btn {
+.urls_container button, .btn {
   border-radius: 5px;
   height: 40px;
   width: 10em; }
 
-#urls_container .shown {
+.urls_container .shown {
   display: block; }
 
-#urls_container .not-shown {
+.urls_container .not-shown {
   display: none; }
 
 h1 {
@@ -296,14 +296,14 @@ h1 {
   position: relative; }
   .container header a {
     text-decoration: none; }
-  .container header div#desktop-nav a {
+  .container header div.desktop-nav a {
     color: LightGray;
     color: #c4c4c4; }
-    .container header div#desktop-nav a:hover {
+    .container header div.desktop-nav a:hover {
       color: black; }
   .container header .outer-width {
     width: 100%; }
-  .container header #navbarCollapse {
+  .container header .navbarCollapse {
     z-index: 99;
     height: 65vh;
     opacity: 1;
@@ -311,34 +311,30 @@ h1 {
     width: 100%;
     background-color: MidnightBlue;
     background-color: #56477b; }
-    .container header #navbarCollapse .full-width-hr {
+    .container header .navbarCollapse .full-width-hr {
       margin: 20px;
       border: 0;
       border-top: 1px solid white; }
-    .container header #navbarCollapse hr {
+    .container header .navbarCollapse hr {
       color: white; }
-    .container header #navbarCollapse li {
+    .container header .navbarCollapse li {
       padding-bottom: 2em; }
-      .container header #navbarCollapse li a {
+      .container header .navbarCollapse li a {
         font-size: 2rem;
         font-weight: 500; }
         @media screen and (min-width: 52.31em) {
-          .container header #navbarCollapse li a {
+          .container header .navbarCollapse li a {
             font-size: 1em; } }
 .container section {
   padding-bottom: 1em; }
 .container__firstChild {
   margin-top: 1em;
   margin-bottom: 2em; }
-  .container__firstChild #first-text {
+  .container__firstChild .text-center-start {
     text-align: center; }
     @media screen and (min-width: 52.31em) {
-      .container__firstChild #first-text {
+      .container__firstChild .text-center-start {
         text-align: start; } }
-  @media screen and (max-width: 52.3em) {
-    .container__firstChild #hero {
-      max-width: 75%;
-      max-height: 75%; } }
   @media screen and (min-width: 52.31em) {
     .container__firstChild {
       margin-bottom: 6em; } }
@@ -349,25 +345,25 @@ h1 {
   /*::placeholder {
       color: var(--c, black);
   }*/ }
-  .container__secondChild #url-form {
+  .container__secondChild .url-form {
     background: #3b3054 url(./images/bg-shorten-mobile.svg) top center/100% 100%;
     min-height: 8em;
     position: relative;
     bottom: 2em; }
-    .container__secondChild #url-form #left {
+    .container__secondChild .url-form .left {
       height: 4em;
       width: 100%; }
-      .container__secondChild #url-form #left #url {
+      .container__secondChild .url-form .left #url {
         height: 40px;
         width: 100%;
         max-width: calc(100% - 30px);
         margin: 0 15px; }
-      .container__secondChild #url-form #left .error-message {
+      .container__secondChild .url-form .left .error-message {
         font-weight: 600;
         margin-top: 1em;
         position: relative;
         left: 1em; }
-    .container__secondChild #url-form #right {
+    .container__secondChild .url-form .right {
       height: 4em; }
   .container__secondChild .added-url {
     background-color: Snow;
@@ -453,9 +449,9 @@ h1 {
       padding: 0;
       margin: 0; } }
 
-#about-me-outer {
+.about-me-outer {
   height: 600px; }
-  #about-me-outer #about-me {
+  .about-me-outer #about-me {
     position: relative;
     top: 100px; }
 

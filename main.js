@@ -26,7 +26,7 @@ const data={
 	url_btn:document.getElementById('get_url'),
 	urlRegTwo:/[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
-	urls_container: document.getElementById('urls_container'),
+	urls_container: document.querySelector('.urls_container'),
 	encodedUrl:'',
 	hashId:'',
 	shortendUrl:'',
@@ -178,7 +178,7 @@ const addListener =()=>{
 			$(btn).addClass('dark-blue-rounded-button');
 		}
 		//get the button's immediate sibling(<p> element)
-		let sibling = btn.previousElementSibling;
+		const sibling = btn.previousElementSibling;
 		//get the input data value (data-copy) for the buttons' sibling <p> 
 		const btnData = $(sibling).attr('data-copy');
 		btn.style.backgroundColor='lighten(hsl(255, 11%, 22%),10)';
@@ -214,11 +214,11 @@ $(window).on('load',function(){
 	updateUrl_container();
 	addListener();
 
-	const navbar= document.getElementById('navbarCollapse');
+	const navbar= document.querySelector('.navbarCollapse');
 
 	$("#menubutton").on("click", function(){
-		$('#nav').toggleClass('custom-nav');
-		document.querySelector('#navbarCollapse').classList.toggle("hidden");
+		$('.nav').toggleClass('custom-nav');
+		navbar.classList.toggle("hidden");
 		navbar.toggleAttribute('aria-expanded');
     });
 	

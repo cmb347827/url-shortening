@@ -1,9 +1,9 @@
 @media screen and (max-width: 52.30em){                         
-    #desktop-nav{
+    .desktop-nav{
         display:none;
     }
-    #nav{
-        #nav-top{
+    .nav{
+        .nav-top{
             display:flex;
             flex-direction:row;
             justify-content: space-between;
@@ -23,16 +23,16 @@
 }
 
 @media screen and (min-width:52.31em){                        
-        #nav{
+        .nav{
             display:none;
         }
-        #desktop-nav{
+        .desktop-nav{
             display:flex;
             flex-direction:row;
             justify-content: space-between;
             align-items: center;
         }
-        #desktop-ul{
+        .desktop-ul{
             display:flex;
             flex-direction:row;
         }
