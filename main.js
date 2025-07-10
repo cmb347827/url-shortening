@@ -23,14 +23,14 @@ function clearLocalStorage(){
 const data={
 	input: document.getElementById('url'),
 	error: document.querySelector('.error-message'),
-	url_btn:document.getElementById('get_url'),
+	url_btn:document.querySelector('.js-get-url'),
 	urlRegTwo:/[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.querySelector('.urls_container'),
 	encodedUrl:'',
 	hashId:'',
 	shortendUrl:'',
-	clearBtn : document.getElementById('clear_all'),
+	clearBtn : document.querySelector('.js-clear-all'),
 }
 
 const urlEncoded=()=>{
@@ -216,7 +216,7 @@ $(window).on('load',function(){
 
 	const navbar= document.querySelector('.navbarCollapse');
 
-	$("#menubutton").on("click", function(){
+	$(".menubutton").on("click", function(){
 		$('.nav').toggleClass('custom-nav');
 		navbar.classList.toggle("hidden");
 		navbar.toggleAttribute('aria-expanded');

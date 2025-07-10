@@ -80,7 +80,7 @@ body {
    text-align:center;
 }
 .text-md-start{
-   @media screen and (min-width:837px){
+   @media screen and (min-width:52.31em){
        text-align:start;
    }
 }
@@ -97,16 +97,16 @@ body {
     .nav-top{
        @include bg-color(map-get($colors,White),nth($fallback-colors,8));
     }
-    a,#login-mobile{
+    a,.login-mobile{
       @include font-color(map-get($colors,White),nth($fallback-colors,8));
     }
-    #login-mobile{
+    .login-mobile{
        @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
        border:none;
        width: 30em;
        margin-bottom:2em;
     }
-    #signup-mobile{
+    .signup-mobile{
        width: 25em;
     }
 }
@@ -299,14 +299,11 @@ h1 {
             ul {
               list-style-type:none;
             }
-            /*::placeholder {
-                color: var(--c, black);
-            }*/
             #urls_container{
                 margin-top: 2em;
             }
             @media screen and (min-width:52.31em){             
-                  #url-form{
+                  .url-form{
                      background:hsl(257, 27%, 26%) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
                      bottom:4em;
                   }
