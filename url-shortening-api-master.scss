@@ -225,15 +225,14 @@ h1 {
                 }
                 li {
                    padding-bottom:2em;
-                   
-                  .nav-a{
+                }  
+                .nav-a{
                     font-size: 2rem;
                     font-weight:$font_weight-medium;
                     @media screen and (min-width:52.31em){
                       font-size: 1em;
                     }
-                  }
-                }  
+                 }
             }
         }
         
@@ -359,30 +358,30 @@ h1 {
         &__fifthChild{
               padding-top: 2em;
             
-             .logo-svg{
-                @media screen and (max-width:52.30em){                          
-                    margin:0 auto;
-                    position:relative;
-                    left: 1em;
-                }
-             }
              .outer-svg{
                 min-width:22%;
+                margin:0 auto;
+                position:relative;
+                left: 1em;
              }
              h5{
                 padding-bottom:1em;
                 margin:0;
+                @include font-color(map-get($colors,White),nth($fallback-colors,8));
+                &:hover{
+                   @include font-color(map-get($colors,White),nth($fallback-colors,8));
+                }
              }
              @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
             
-             h5,a{
+             a{
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
-              &:hover:not(h5), &:hover:not(#logo-svg){
-                 @include font-color(lighten(map-get($colors,Cyan),5),nth($fallback-colors,1));
+              &:hover{
+                 @include font-color(map-get($colors,Cyan),nth($fallback-colors,1));
               }
              }
              
-             svg:hover path{
+             svg:not(.logo-svg):hover path{
                   fill:cyan;
              }
              

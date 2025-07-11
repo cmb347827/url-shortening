@@ -315,12 +315,12 @@ h1 {
       color: white; }
     .container header .navbarCollapse li {
       padding-bottom: 2em; }
-      .container header .navbarCollapse li .nav-a {
-        font-size: 2rem;
-        font-weight: 500; }
-        @media screen and (min-width: 52.31em) {
-          .container header .navbarCollapse li .nav-a {
-            font-size: 1em; } }
+    .container header .navbarCollapse .nav-a {
+      font-size: 2rem;
+      font-weight: 500; }
+      @media screen and (min-width: 52.31em) {
+        .container header .navbarCollapse .nav-a {
+          font-size: 1em; } }
 .container section {
   padding-bottom: 1em; }
 .container__firstChild {
@@ -415,23 +415,26 @@ h1 {
   padding-top: 2em;
   background-color: Indigo;
   background-color: #232127; }
-  @media screen and (max-width: 52.3em) {
-    .container__fifthChild .logo-svg {
-      margin: 0 auto;
-      position: relative;
-      left: 1em; } }
   .container__fifthChild .outer-svg {
-    min-width: 22%; }
+    min-width: 22%;
+    margin: 0 auto;
+    position: relative;
+    left: 1em; }
   .container__fifthChild h5 {
     padding-bottom: 1em;
-    margin: 0; }
-  .container__fifthChild h5, .container__fifthChild a {
+    margin: 0;
     color: Snow;
     color: white; }
-    .container__fifthChild h5:hover:not(h5), .container__fifthChild h5:hover:not(#logo-svg), .container__fifthChild a:hover:not(h5), .container__fifthChild a:hover:not(#logo-svg) {
+    .container__fifthChild h5:hover {
+      color: Snow;
+      color: white; }
+  .container__fifthChild a {
+    color: Snow;
+    color: white; }
+    .container__fifthChild a:hover {
       color: Cyan;
-      color: #3cd7d7; }
-  .container__fifthChild svg:hover path {
+      color: #2acfcf; }
+  .container__fifthChild svg:not(.logo-svg):hover path {
     fill: cyan; }
   @media screen and (min-width: 52.31em) {
     .container__fifthChild ul {
