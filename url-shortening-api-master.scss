@@ -215,25 +215,25 @@ h1 {
                   position:absolute;
                   width: 100%;
                   @include bg-color(lighten(map-get($colors, Dark Violet),12),nth($fallback-colors,2));
-                .full-width-hr{
+            }
+            .full-width-hr{
                     margin: 1.25em;
                     border: 0;
                     border-top: 1px solid white;
+             }
+              hr{
+                  color: white;
+              }
+              li {
+                  padding-bottom:2em;
+              }  
+            .nav-a{
+                font-size: 2rem;
+                font-weight:$font_weight-medium;
+                @media screen and (min-width:52.31em){
+                  font-size: 1em;
                 }
-                hr{
-                   color: white;
-                }
-                li {
-                   padding-bottom:2em;
-                }  
-                .nav-a{
-                    font-size: 2rem;
-                    font-weight:$font_weight-medium;
-                    @media screen and (min-width:52.31em){
-                      font-size: 1em;
-                    }
-                 }
-            }
+              }
         }
         
         section{
@@ -267,19 +267,19 @@ h1 {
                     height:4em;
                     width:100%;
 
-                    .url{
-                        height:2.5em;
-                        width: 100%;
-                        max-width:calc(100% - 1.875em);
-                        margin: 0 0.9375em;
+                }
+                .url{
+                      height:2.5em;
+                      width: 100%;
+                      max-width:calc(100% - 1.875em);
+                      margin: 0 0.9375em;
 
-                    }
-                    div.error-message{
-                        font-weight:$font_weight-semibold;
-                        margin-top: 1em;
-                        position:relative;
-                        left: 1em;
-                    }
+                 }
+                div.error-message{
+                    font-weight:$font_weight-semibold;
+                    margin-top: 1em;
+                    position:relative;
+                    left: 1em;
                 }
                 .right{
                       height: 4em;
@@ -399,7 +399,7 @@ h1 {
 
 .about-me-outer{
     height:37.5em;
-    #about-me{
+    .about-me{
         position:relative;
         top: 6.25em;
     }

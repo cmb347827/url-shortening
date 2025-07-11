@@ -307,20 +307,20 @@ h1 {
     width: 100%;
     background-color: MidnightBlue;
     background-color: #56477b; }
-    .container header .navbarCollapse .full-width-hr {
-      margin: 1.25em;
-      border: 0;
-      border-top: 1px solid white; }
-    .container header .navbarCollapse hr {
-      color: white; }
-    .container header .navbarCollapse li {
-      padding-bottom: 2em; }
-    .container header .navbarCollapse .nav-a {
-      font-size: 2rem;
-      font-weight: 500; }
-      @media screen and (min-width: 52.31em) {
-        .container header .navbarCollapse .nav-a {
-          font-size: 1em; } }
+  .container header .full-width-hr {
+    margin: 1.25em;
+    border: 0;
+    border-top: 1px solid white; }
+  .container header hr {
+    color: white; }
+  .container header li {
+    padding-bottom: 2em; }
+  .container header .nav-a {
+    font-size: 2rem;
+    font-weight: 500; }
+    @media screen and (min-width: 52.31em) {
+      .container header .nav-a {
+        font-size: 1em; } }
 .container section {
   padding-bottom: 1em; }
 .container__firstChild {
@@ -346,16 +346,16 @@ h1 {
     .container__secondChild .url-form .left {
       height: 4em;
       width: 100%; }
-      .container__secondChild .url-form .left .url {
-        height: 2.5em;
-        width: 100%;
-        max-width: calc(100% - 1.875em);
-        margin: 0 0.9375em; }
-      .container__secondChild .url-form .left div.error-message {
-        font-weight: 600;
-        margin-top: 1em;
-        position: relative;
-        left: 1em; }
+    .container__secondChild .url-form .url {
+      height: 2.5em;
+      width: 100%;
+      max-width: calc(100% - 1.875em);
+      margin: 0 0.9375em; }
+    .container__secondChild .url-form div.error-message {
+      font-weight: 600;
+      margin-top: 1em;
+      position: relative;
+      left: 1em; }
     .container__secondChild .url-form .right {
       height: 4em; }
   .container__secondChild .added-url {
@@ -443,7 +443,7 @@ h1 {
 
 .about-me-outer {
   height: 37.5em; }
-  .about-me-outer #about-me {
+  .about-me-outer .about-me {
     position: relative;
     top: 6.25em; }
 
