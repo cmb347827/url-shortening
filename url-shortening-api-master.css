@@ -286,12 +286,13 @@ h1 {
       font-size: 1.1em;
       margin-bottom: 0.5em; } }
 
+.container a {
+  text-decoration: none; }
 .container nav ul {
   list-style-type: none; }
 .container header {
   position: relative; }
   .container header a {
-    text-decoration: none;
     color: LightGray;
     color: #c4c4c4; }
     .container header a:hover {
@@ -345,7 +346,7 @@ h1 {
     .container__secondChild .url-form .left {
       height: 4em;
       width: 100%; }
-      .container__secondChild .url-form .left #url {
+      .container__secondChild .url-form .left .url {
         height: 2.5em;
         width: 100%;
         max-width: calc(100% - 1.875em);
@@ -368,7 +369,7 @@ h1 {
       background: #3b3054 url(./images/bg-shorten-desktop.svg) top center/100% 100%;
       bottom: 4em; } }
   @media screen and (max-width: 75em) {
-    .container__secondChild #url {
+    .container__secondChild .url {
       position: relative;
       top: 1em;
       max-width: 40em; } }
@@ -424,8 +425,6 @@ h1 {
   .container__fifthChild h5 {
     padding-bottom: 1em;
     margin: 0; }
-  .container__fifthChild a {
-    text-decoration: none; }
   .container__fifthChild h5, .container__fifthChild a {
     color: Snow;
     color: white; }

@@ -21,7 +21,7 @@ function clearLocalStorage(){
 ///[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
 //all data.
 const data={
-	input: document.getElementById('url'),
+	input: document.querySelector('.url'),
 	error: document.querySelector('.error-message'),
 	url_btn:document.querySelector('.js-get-url'),
 	urlRegTwo:/[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
