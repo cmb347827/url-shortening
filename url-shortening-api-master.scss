@@ -262,12 +262,12 @@ h1 {
                min-height:8em;
                position:relative;
                bottom: 2em;
-                
-               .left{
+            }
+            .left{
                     height:4em;
                     width:100%;
 
-                }
+             }
                 .url{
                       height:2.5em;
                       width: 100%;
@@ -284,7 +284,6 @@ h1 {
                 .right{
                       height: 4em;
                 }
-            }
             .added-url{
                 @include bg-color(map-get($colors,White),nth($fallback-colors,8));
                 margin: 1em 2em;
@@ -374,7 +373,7 @@ h1 {
              }
              @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
             
-             a{
+             a.touch-target{
               @include font-color(map-get($colors,White),nth($fallback-colors,8));
               &:hover{
                  @include font-color(map-get($colors,Cyan),nth($fallback-colors,1));
