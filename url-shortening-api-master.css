@@ -428,10 +428,10 @@ h1 {
     .container__fifthChild h5:hover {
       color: Snow;
       color: white; }
-  .container__fifthChild a {
+  .container__fifthChild .touch-target {
     color: Snow;
     color: white; }
-    .container__fifthChild a:hover {
+    .container__fifthChild .touch-target:hover {
       color: Cyan;
       color: #2acfcf; }
   .container__fifthChild svg:not(.logo-svg):hover path {
