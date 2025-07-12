@@ -351,7 +351,7 @@ h1 {
       width: 100%;
       max-width: calc(100% - 1.875em);
       margin: 0 0.9375em; }
-    .container__secondChild .url-form div.error-message {
+    .container__secondChild .url-form .error-message {
       font-weight: 600;
       margin-top: 1em;
       position: relative;
@@ -379,7 +379,7 @@ h1 {
   background-color: #efeff1; }
   .container__thirdChild article {
     background: linear-gradient(cyan, cyan) no-repeat center/5px 90%; }
-  .container__thirdChild div.white {
+  .container__thirdChild .white {
     background-color: Snow;
     background-color: white;
     margin: 3em; }
@@ -399,7 +399,7 @@ h1 {
       top: 1em; }
     .container__thirdChild .down-2em {
       top: 2em; }
-    .container__thirdChild div.white {
+    .container__thirdChild .white {
       margin: 1em; }
     .container__thirdChild .svg-icon {
       margin: 0; } }

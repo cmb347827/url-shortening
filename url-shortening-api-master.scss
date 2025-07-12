@@ -242,7 +242,7 @@ h1 {
         &__firstChild{
              margin-top: 1em;
              margin-bottom:2em;
-             .text-center-start{
+            .text-center-start{
                  text-align:center;
                  @media screen and (min-width:52.31em){                  
                       text-align: start;
@@ -275,7 +275,7 @@ h1 {
                       margin: 0 0.9375em;
 
                  }
-                div.error-message{
+                .error-message{
                     font-weight:$font_weight-semibold;
                     margin-top: 1em;
                     position:relative;
@@ -313,7 +313,7 @@ h1 {
                  //the vertical line in mobile
                  background: linear-gradient(cyan, cyan) no-repeat center/5px 90%;
               }
-              div.white{
+              .white{
                    @include bg-color(map-get($colors,White),nth($fallback-colors,8));
                    margin:3em;
               }
@@ -339,7 +339,7 @@ h1 {
                   .down-2em{
                      top: 2em;
                   }
-                  div.white{
+                  .white{
                      margin:1em;
                   }
                   .svg-icon{
