@@ -434,7 +434,7 @@ h1 {
     .container__fifthChild .touch-target:hover {
       color: Cyan;
       color: #2acfcf; }
-  .container__fifthChild svg:not(.logo-svg):hover path {
+  .container__fifthChild .cyan-hover:hover {
     fill: cyan; }
   @media screen and (min-width: 52.31em) {
     .container__fifthChild ul {

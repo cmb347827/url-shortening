@@ -381,8 +381,10 @@ h1 {
                 }
             }
              
-             svg:not(.logo-svg):hover path{
-                  fill:cyan;
+             .cyan-hover {
+                 &:hover{
+                    fill:cyan;
+                 }
              }
              
              @media screen and (min-width: 52.31em){            
