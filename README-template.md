@@ -60,7 +60,7 @@ Users should be able to:
 - And then I got stuck in the last video ,of 3, of the course in which I could not get the , similar to the course code, with my code to work. I finally , after more then a week found why (see link 5). The netlify tutorial I followed was 4 years old, but I assumed that that was okay still. 
 -  I wasted too much time, before I figured that with the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console. It would have helped with debugging. As I took forever to figure out how to use the getFetchPost() together with the netlify serverless function octo.mjs.  I had to ask at Discord (see link 6), and that helped.  I still had to figure out that I needed to change my getFetchPost() to an async function, as well as my returnShort() function, as it called getFetchPost().
 - I also decided to go with validator.js to validate the user url input, as my regular expression was probably not going to work 100%.
-  
+- scss: px, ids. nested specifity (keep flat and most specific last)
 
 ### Continued development
 - I will have to learn much more about node.js and netlify.
