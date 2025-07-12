@@ -355,7 +355,8 @@ h1 {
                   background:hsl(257, 27%, 26%) url('./images/bg-boost-desktop.svg') top center/100% 100%;
               }
         }
-        &__fifthChild{
+
+       /*&__fifthChild{
               padding-top: 2em;
             
              .outer-svg{
@@ -390,7 +391,7 @@ h1 {
                    margin:0;
                  }
              }
-        }
+        }*/
     
       
 }
@@ -402,5 +403,5 @@ h1 {
         position:relative;
         top: 6.25em;
     }
-  
+    
 }
