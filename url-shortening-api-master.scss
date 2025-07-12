@@ -373,12 +373,12 @@ h1 {
                 }
              }
              @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
-            .touch-target{
+            /*.touch-target{
                 @include font-color(map-get($colors,White),nth($fallback-colors,8));
                 &:hover{
                     @include font-color(map-get($colors,Cyan),nth($fallback-colors,1));
                 }
-            }
+            }*/
              
              svg:not(.logo-svg):hover path{
                   fill:cyan;
