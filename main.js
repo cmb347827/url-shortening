@@ -45,6 +45,7 @@ const urlEncoded=()=>{
 }
 
 
+
 // next three functions are for fetching the shortened url
 async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
@@ -85,6 +86,9 @@ async function returnShort(){
 	//data.encodedUrl = urlEncoded();  //? + octo statustext?  
 	//netlify serverless function is called in getFetchPost() to fetch the shortened url
     const shortened =  await getFetchPost();
+	if(shortened===undefined){
+		shortened= "You entered a wrong url format url, please try again";
+	}
 	
 	//create new url object , with both the old url and new shortened url
 	const inputUrl={
