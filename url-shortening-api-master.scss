@@ -407,3 +407,15 @@ h1 {
     }
     
 }
+
+//specificity 0,3,0
+//taken from https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 0.0625em;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 0.0625em;
+}

@@ -52,7 +52,7 @@ Users should be able to:
 
 
 ### What I learned
-
+- First of please ignore the deployment here in github, and only visit the Nelitfy version. The github deployed version won't work correctly. See the Netlify link above.
 - I decided to go by a url format help site, as it's been a while since I looked at url formats. I used the recommend format to come up with the regular expression that is used to detect if the url is valid format. See link 1. My regex does accept the protocol schema, as the design allows this. 
 - I tried to find ways to integrate my code with the cleanuri.api. I tried using fetch() as well as XMLHttpRequest(), which I know is old , both caused CORS errors. Then I read about using a proxy server (for instance, CORS anywhere) to circumvent the CORS error.
   This did not work either as also CORS anywhere was no longer functional. See link 2. Somebody at Discord said I will need backend for this, and this includes Node and Netlify , for serverless functions. 
@@ -61,6 +61,7 @@ Users should be able to:
 -  I wasted too much time, before I figured that with the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console. It would have helped with debugging. As I took forever to figure out how to use the getFetchPost() together with the netlify serverless function octo.mjs.  I had to ask at Discord (see link 6), and that helped.  I still had to figure out myself that I needed to change my getFetchPost() to an async function, as well as my returnShort() function, as it called getFetchPost().
 - I also decided to go with validator.js to validate the user url input instead of my regular expression, as my regular expression was probably not going to work 100%.
 - I also received some warnings in my scss file. I've always used px for certain measurements , especially smaller widths/heights , for margins, etc. But it seems not acceptable at all anymore. Not even in media queries.  The same goes for the use of IDs. I would use them less but still for buttons, form elements, and if I knew that an element was unique on my page. But it seems unacceptable too now to use IDs at all.  My scss file was also using to many nested specifiers.  The report said that specifity needs to be as flat as possible. Things I will keep doing.
+- 
 
 
 ### Continued development
