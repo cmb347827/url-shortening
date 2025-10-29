@@ -14,7 +14,13 @@ function clearLocalStorage(){
 	location.reload();
  }
  function loadFromStorage(set,data){
-	data = JSON.parse(localStorage.getItem(set));  
+	//data = JSON.parse(localStorage.getItem(set));  
+	 data = localStorage.getItem(set);
+    if(data){
+        return JSON.parse(data);
+    }else{ 
+        return null;
+    }
 }
 //[a-z A-Z]{3,255}:\/\/(w{0,3})(_?)([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+|\_)[a-z A-Z 0-9 ]{0,63}){1,2024}
 
@@ -25,7 +31,7 @@ const data={
 	error: document.querySelector('.error-message'),
 	url_btn:document.querySelector('.js-get-url'),
 	urlRegTwo:/[a-z A-Z]{3,255}:\/\/([a-z A-Z 0-9]{0,63}(\.|\/|-|%20|\+)[a-z A-Z 0-9]{0,63}){1,2024}/,
-	urlData : JSON.parse(localStorage.getItem("url")) || [],
+	urlData : JSON.parse(localStorage.getItem("url_12iduzl?2330ervb122key")) || [],
 	urls_container: document.querySelector('.urls_container'),
 	encodedUrl:'',
 	hashId:'',
@@ -38,6 +44,8 @@ const urlEncoded=()=>{
      return encodeURIComponent(data.input.value);
 }
 
+
+// next three functions are for fetching the shortened url
 async function getFetchPost(){
 	//const url = '/.netlify/functions/proxy';
 	//const url = '/.netlify/functions/serverlessFetch';
@@ -73,7 +81,6 @@ async function getFetchPost(){
     });
 }
 
-
 async function returnShort(){
 	//data.encodedUrl = urlEncoded();  //? + octo statustext?  
 	//netlify serverless function is called in getFetchPost() to fetch the shortened url
@@ -86,7 +93,7 @@ async function returnShort(){
 	}
 	data.urlData.push(inputUrl);
 	//this way the urls will be visible still with a browser refresh
-	saveToStorage('url',data.urlData);
+	saveToStorage('"url_12iduzl?2330ervb122key"',data.urlData);
 
 	//button classlist variable , assume first that clipboard is not supported, so don't show the 'copy' button.
 	let includedClasses='not-shown';
@@ -130,6 +137,9 @@ const validateURL=(event)=>{
         data.error.innerHTML = `<p class='red-font'>Enter a link to be shortened...</p>`;
 	}
 }
+
+
+//clipboard read/write functions to store the shortened url to clipboard (if users system supports it)
 const clipBoardWrite = async (btnData) => {
     if (!navigator.clipboard) {
          return;
@@ -162,6 +172,8 @@ const clipBoardRead= async()=>{
 		}
     }
 }
+
+
 
 const addListener =()=>{
 	//add listener to the input field button "shorten it"
@@ -210,7 +222,7 @@ const updateUrl_container=()=>{
 }
 
 $(window).on('load',function(){
-	loadFromStorage('url',data.urlData);
+	loadFromStorage('"url_12iduzl?2330ervb122key"',data.urlData);
 	updateUrl_container();
 	addListener();
 
