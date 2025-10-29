@@ -85,7 +85,7 @@ async function getFetchPost(){
 async function returnShort(){
 	//data.encodedUrl = urlEncoded();  //? + octo statustext?  
 	//netlify serverless function is called in getFetchPost() to fetch the shortened url
-    const shortened =  await getFetchPost();
+    let shortened =  await getFetchPost();
 	if(shortened===undefined){
 		shortened= "You entered a wrong url format url, please try again";
 	}
