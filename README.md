@@ -61,7 +61,10 @@ Users should be able to:
 -  I wasted too much time, before I figured that with the use of console.log in debugging, didn't realize it showed in the terminal instead of the browser console. It would have helped with debugging. As I took forever to figure out how to use the getFetchPost() together with the netlify serverless function octo.mjs.  I had to ask at Discord (see link 6), and that helped.  I still had to figure out myself that I needed to change my getFetchPost() to an async function, as well as my returnShort() function, as it called getFetchPost().
 - I also decided to go with validator.js to validate the user url input instead of my regular expression, as my regular expression was probably not going to work 100%.
 - I also received some warnings in my scss file. I've always used px for certain measurements , especially smaller widths/heights , for margins, etc. But it seems not acceptable at all anymore. Not even in media queries.  The same goes for the use of IDs. I would use them less but still for buttons, form elements, and if I knew that an element was unique on my page. But it seems unacceptable too now to use IDs at all.  My scss file was also using to many nested specifiers.  The report said that specifity needs to be as flat as possible. Things I will keep doing.
-- 
+- I validated my html file on 10/30/25 at 'https://validator.w3.org/nu/#file' and the result was 'Document checking completed. No errors or warnings to show.'
+  I validated my css file on 10/30/25 at 'https://jigsaw.w3.org/css-validator/validator.html.en#validate_by_upload' and it got 'Congratulations! No Error Found.This document validates as CSS level 3 + SVG !'
+  Finally, I went to Lighthouse for my netlify live page , and got for mobile: 99 performance,96 accessiblity,100 best practices,100 seo.
+   And for desktop: 100 performance,96 accesisiblity,100 best practices, and 100 seo.
 
 
 ### Continued development
