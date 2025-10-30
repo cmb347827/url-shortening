@@ -212,7 +212,10 @@
     flex-direction: row;
   }
 }
-*,
+* {
+  box-sizing: border-box;
+}
+
 ::before,
 ::after {
   box-sizing: border-box;
@@ -225,6 +228,11 @@ body {
   font-size: 1.125em;
   font-weight: 400;
   font-family: "Rubik", sans-serif;
+}
+
+h1 {
+  margin-block: 0.67em;
+  font-size: 2em;
 }
 
 .hidden {
@@ -270,51 +278,6 @@ body {
   height: 100%;
 }
 
-.custom-nav .nav-top {
-  background-color: Snow;
-  background-color: hsl(150deg, 100%, 100%);
-}
-.custom-nav a, .custom-nav .login-mobile {
-  color: Snow;
-  color: hsl(150deg, 100%, 100%);
-}
-.custom-nav .login-mobile {
-  background-color: MidnightBlue;
-  background-color: #56477b;
-  border: none;
-  width: 30em;
-  margin-bottom: 2em;
-}
-.custom-nav .signup-mobile {
-  width: 25em;
-}
-
-.order-1 .order-zero {
-  order: 0;
-}
-.order-1 .order-one {
-  order: 1;
-}
-@media screen and (min-width: 52.31em) {
-  .order-1 .order-md-zero {
-    order: 0;
-  }
-  .order-1 .order-md-one {
-    order: 1;
-  }
-}
-
-.visually-hidden:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
-  height: 0.0625em;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 0.0625em;
-}
-
 .urls_container button, .btn {
   border-radius: 0.3125em;
   height: 2.5em;
@@ -327,30 +290,6 @@ body {
 
 .urls_container .not-shown {
   display: none;
-}
-
-h1 {
-  margin-block: 0.67em;
-  font-size: 2em;
-}
-
-.no-btn {
-  background-color: Snow;
-  background-color: hsl(150deg, 100%, 100%);
-  border: none;
-}
-
-.green-rounded-button {
-  border-radius: 0.875em;
-  border: none;
-  color: Snow;
-  color: hsl(150deg, 100%, 100%);
-  background-color: Cyan;
-  background-color: hsl(180deg, 66%, 49%);
-}
-.green-rounded-button:hover {
-  background-color: Cyan;
-  background-color: #56dcdc;
 }
 
 .dark-blue-rounded-button {
@@ -366,6 +305,12 @@ h1 {
   position: relative;
 }
 
+.no-btn {
+  background-color: Snow;
+  background-color: hsl(150deg, 100%, 100%);
+  border: none;
+}
+
 .touch-target {
   font-size: 1.5em;
   margin-bottom: 0.5em;
@@ -377,21 +322,74 @@ h1 {
   }
 }
 
+.container__fourthChild {
+  padding: 2em 0;
+  background: hsl(257deg, 27%, 26%) url("./images/bg-boost-mobile.svg") top center/100% 100%;
+  color: Snow;
+  color: hsl(150deg, 100%, 100%);
+}
+@media screen and (min-width: 52.31em) {
+  .container__fourthChild {
+    background: hsl(257deg, 27%, 26%) url("./images/bg-boost-desktop.svg") top center/100% 100%;
+  }
+}
 .container a {
   text-decoration: none;
 }
 .container nav ul {
   list-style-type: none;
 }
+.container section {
+  padding-bottom: 1em;
+}
+.container__thirdChild {
+  padding: 1em;
+  background-color: Thistle;
+  background-color: #efeff1;
+}
+.container__thirdChild article {
+  background: linear-gradient(cyan, cyan) no-repeat center/5px 90%;
+}
+@media screen and (min-width: 52.31em) {
+  .container__thirdChild article {
+    background: linear-gradient(cyan, cyan) no-repeat 20% center/90% 5px;
+  }
+  .container__thirdChild .down-1em {
+    top: 1em;
+  }
+  .container__thirdChild .down-2em {
+    top: 2em;
+  }
+  .container__thirdChild .white {
+    margin: 1em;
+  }
+  .container__thirdChild .svg-icon {
+    margin: 0;
+  }
+}
+.container__thirdChild .white {
+  background-color: Snow;
+  background-color: hsl(150deg, 100%, 100%);
+  margin: 3em;
+}
+.container__thirdChild .svg-icon {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: DarkSlateBlue;
+  background-color: hsl(255deg, 11%, 22%);
+  margin: 0 auto;
+  position: relative;
+  top: -2em;
+}
 .container header {
   position: relative;
 }
-.container header a {
-  color: LightGray;
-  color: #c4c4c4;
+.container header hr {
+  color: white;
 }
-.container header a:hover {
-  color: black;
+.container header li {
+  padding-bottom: 2em;
 }
 .container header .outer-width {
   width: 100%;
@@ -410,12 +408,6 @@ h1 {
   border: 0;
   border-top: 1px solid white;
 }
-.container header hr {
-  color: white;
-}
-.container header li {
-  padding-bottom: 2em;
-}
 .container header .nav-a {
   font-size: 2rem;
   font-weight: 500;
@@ -425,8 +417,12 @@ h1 {
     font-size: 1em;
   }
 }
-.container section {
-  padding-bottom: 1em;
+.container header a {
+  color: LightGray;
+  color: #c4c4c4;
+}
+.container header a:hover {
+  color: black;
 }
 .container__firstChild {
   margin-top: 1em;
@@ -449,6 +445,27 @@ h1 {
   padding: 1em;
   background-color: Thistle;
   background-color: #efeff1;
+}
+.container__secondChild .added-url {
+  background-color: Snow;
+  background-color: hsl(150deg, 100%, 100%);
+  margin: 1em 2em;
+}
+.container__secondChild .urls_container {
+  margin-top: 2em;
+}
+@media screen and (min-width: 52.31em) {
+  .container__secondChild .url-form {
+    background: hsl(257deg, 27%, 26%) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
+    bottom: 4em;
+  }
+}
+@media screen and (max-width: 75em) {
+  .container__secondChild .url {
+    position: relative;
+    top: 1em;
+    max-width: 40em;
+  }
 }
 .container__secondChild .url-form {
   background: hsl(257deg, 27%, 26%) url(./images/bg-shorten-mobile.svg) top center/100% 100%;
@@ -475,82 +492,16 @@ h1 {
 .container__secondChild .url-form .right {
   height: 4em;
 }
-.container__secondChild .added-url {
-  background-color: Snow;
-  background-color: hsl(150deg, 100%, 100%);
-  margin: 1em 2em;
-}
-.container__secondChild .urls_container {
-  margin-top: 2em;
-}
-@media screen and (min-width: 52.31em) {
-  .container__secondChild .url-form {
-    background: hsl(257deg, 27%, 26%) url(./images/bg-shorten-desktop.svg) top center/100% 100%;
-    bottom: 4em;
-  }
-}
-@media screen and (max-width: 75em) {
-  .container__secondChild .url {
-    position: relative;
-    top: 1em;
-    max-width: 40em;
-  }
-}
-.container__thirdChild {
-  padding: 1em;
-  background-color: Thistle;
-  background-color: #efeff1;
-}
-.container__thirdChild article {
-  background: linear-gradient(cyan, cyan) no-repeat center/5px 90%;
-}
-.container__thirdChild .white {
-  background-color: Snow;
-  background-color: hsl(150deg, 100%, 100%);
-  margin: 3em;
-}
-.container__thirdChild .svg-icon {
-  width: 5em;
-  height: 5em;
-  border-radius: 50%;
-  background-color: DarkSlateBlue;
-  background-color: hsl(255deg, 11%, 22%);
-  margin: 0 auto;
-  position: relative;
-  top: -2em;
-}
-@media screen and (min-width: 52.31em) {
-  .container__thirdChild article {
-    background: linear-gradient(cyan, cyan) no-repeat 20% center/90% 5px;
-  }
-  .container__thirdChild .down-1em {
-    top: 1em;
-  }
-  .container__thirdChild .down-2em {
-    top: 2em;
-  }
-  .container__thirdChild .white {
-    margin: 1em;
-  }
-  .container__thirdChild .svg-icon {
-    margin: 0;
-  }
-}
-.container__fourthChild {
-  padding: 2em 0;
-  background: hsl(257deg, 27%, 26%) url("./images/bg-boost-mobile.svg") top center/100% 100%;
-  color: Snow;
-  color: hsl(150deg, 100%, 100%);
-}
-@media screen and (min-width: 52.31em) {
-  .container__fourthChild {
-    background: hsl(257deg, 27%, 26%) url("./images/bg-boost-desktop.svg") top center/100% 100%;
-  }
-}
 .container__fifthChild {
   padding-top: 2em;
   background-color: Indigo;
   background-color: hsl(260deg, 8%, 14%);
+}
+@media screen and (min-width: 52.31em) {
+  .container__fifthChild ul {
+    padding: 0;
+    margin: 0;
+  }
 }
 .container__fifthChild .outer-svg {
   min-width: 22%;
@@ -579,11 +530,52 @@ h1 {
 .container__fifthChild .cyan-hover:hover {
   fill: cyan;
 }
+
+.order-1 .order-zero {
+  order: 0;
+}
+.order-1 .order-one {
+  order: 1;
+}
 @media screen and (min-width: 52.31em) {
-  .container__fifthChild ul {
-    padding: 0;
-    margin: 0;
+  .order-1 .order-md-zero {
+    order: 0;
   }
+  .order-1 .order-md-one {
+    order: 1;
+  }
+}
+
+.custom-nav .nav-top {
+  background-color: Snow;
+  background-color: hsl(150deg, 100%, 100%);
+}
+.custom-nav a, .custom-nav .login-mobile {
+  color: Snow;
+  color: hsl(150deg, 100%, 100%);
+}
+.custom-nav .login-mobile {
+  background-color: MidnightBlue;
+  background-color: #56477b;
+  border: none;
+  width: 30em;
+  margin-bottom: 2em;
+}
+.custom-nav .signup-mobile {
+  width: 25em;
+}
+
+.green-rounded-button {
+  border-radius: 0.875em;
+  border: none;
+  color: Snow;
+  color: hsl(150deg, 100%, 100%);
+  background-color: Cyan;
+  background-color: hsl(180deg, 66%, 49%);
+}
+.green-rounded-button:hover {
+  background-color: Cyan;
+  background-color: #56dcdc;
 }
 
 .about-me-outer {
